@@ -32,7 +32,7 @@ function BIS:GetLocalizedMapName(id)
         return info.name;
     end
 
-    return GetRealZoneText(id);    
+    return GetRealZoneText(id);
 end
 
 function BIS:GetLocalizedFactionName(id)

@@ -153,10 +153,10 @@ BIS_specsFileToSpecs = {
 };
 
 local phases = {
-    ["NAME"] = { "Phase 1", "Phase 2 ("..PLAYER_V_PLAYER..")", "Phase 3 (BWL)", "Phase 4 ("..DUNGEON_FLOOR_ZULGURUB1 ..")", "Phase 5 (AQ)", "Phase 6 (Naxx)" },
-    ["ICON"] = { 133066   , 132486   ,  134154   , 134085   , 136152   , 134514   },
-    ["VALUE"] = { 1       , 2        , 3        , 4         , 5        , 6        },
-    ["ENABLED"] = { true , true      , true     , true      , true     , true     }
+    ["NAME"] = { "Phase 1 (Karazhan)", "Phase 2 ("..DUNGEON_FLOOR_COILFANGRESERVOIR1..")", "Phase 3 ("..BIS:GetLocalizedMapName(339)..")", "Phase 4 ("..DUNGEON_FLOOR_ZULAMAN1..")", "Phase 5 ("..DUNGEON_FLOOR_SUNWELLPLATEAU0..")" },
+    ["ICON"] = { "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_princemalchezaar_02", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_ladyvashj",  "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_illidan", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_zuljin", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_triumvirate_darknaaru"},
+    ["VALUE"] = { 1       , 2        , 3        , 4         , 5        },
+    ["ENABLED"] = { true , true      , true     , true      , true     }
     };
 
 local function ResetUI()
