@@ -4,7 +4,8 @@ PROFESSIONS = {
     ["Enchanting"] = GetSpellTexture(7411),
     ["Engineering"] = GetSpellTexture(4036),
     ["Leatherworking"] = GetSpellTexture(2108),
-    ["Tailoring"] = GetSpellTexture(3908)
+    ["Tailoring"] = GetSpellTexture(3908),
+    ["Jewelcrafting"] = GetSpellTexture(25229)
 }
 
 PROFESSIONS_NAME = {
@@ -13,5 +14,6 @@ PROFESSIONS_NAME = {
     ["Enchanting"] = GetSpellInfo(7411),
     ["Engineering"] = GetSpellInfo(4036),
     ["Leatherworking"] = GetSpellInfo(2108),
-    ["Tailoring"] = GetSpellInfo(3908)
+    ["Tailoring"] = GetSpellInfo(3908),
+    ["Jewelcrafting"] = GetSpellInfo(25229)
 }

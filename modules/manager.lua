@@ -105,12 +105,12 @@ BIS_dataSpecs = {
                     ["MAGIC_RESISTANCE"] = { { 1, 4, 5, 7, 6, nil }, { 2, 4, 5, 7, 6, nil }, { 3, 4, 5, 7, 6, nil } },
                     ["WEAPON_ICONS"] = { { 17103, 19356 }, { 17103, 19356 }, { 17103, 19356 } }
                  },
-    [9] = { ["SPEC"] = { "Any" },
-                    ["SPEC_ICONS"] = { 136163 },
-                    ["VALUE"] = { 1 },
+    [9] = { ["SPEC"] = { "Affliction", "Demonology", "Destruction" },
+                    ["SPEC_ICONS"] = { 136145, 136172, 136186 },
+                    ["VALUE"] = { 1, 2, 3 },
                     ["ICON"] = { 136020 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 2, nil, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 17103, 19356 } }
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil }, { 3, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 17103, 19356 }, { 17103, 19356 }, { 17103, 19356 } }
                  },
     [11] = {   ["SPEC"] = { "Feral Tank (Value)", "Feral Tank (Mitigation)", "Feral Tank (Threat)", "Feral DPS", "Restoration", "Balance" },
                     ["SPEC_ICONS"] = { 132276, 132276, 132276, 132115, 136041, 136036 },
@@ -140,8 +140,8 @@ BIS_specsFileToSpecs = {
     ["MageFire"] = { BIS_dataSpecs[8].SPEC[1], BIS_dataSpecs[8].VALUE[1] },
     ["MageFrost"] = { BIS_dataSpecs[8].SPEC[1], BIS_dataSpecs[8].VALUE[1] },
     ["WarlockCurses"] = { BIS_dataSpecs[9].SPEC[1], BIS_dataSpecs[9].VALUE[1] },
-    ["WarlockSummoning"] = { BIS_dataSpecs[9].SPEC[1], BIS_dataSpecs[9].VALUE[1] },
-    ["WarlockDestruction"] = { BIS_dataSpecs[9].SPEC[1], BIS_dataSpecs[9].VALUE[1] },
+    ["WarlockSummoning"] = { BIS_dataSpecs[9].SPEC[1], BIS_dataSpecs[9].VALUE[2] },
+    ["WarlockDestruction"] = { BIS_dataSpecs[9].SPEC[1], BIS_dataSpecs[9].VALUE[3] },
     ["PriestHybrid"] = { BIS_dataSpecs[5].SPEC[1], BIS_dataSpecs[5].VALUE[1] },
     ["PriestShadow"] = { BIS_dataSpecs[5].SPEC[2], BIS_dataSpecs[5].VALUE[2] },
     ["RogueSwords"] = { BIS_dataSpecs[4].SPEC[1], BIS_dataSpecs[4].VALUE[1] },
