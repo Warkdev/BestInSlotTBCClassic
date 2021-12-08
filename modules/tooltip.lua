@@ -152,6 +152,10 @@ function BIS:OnTooltipSetItem(frame)
                 if npc.Chance == -1 then
                     BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." (Unknown)");
                 else
+                    BIS:logmsg("Zone", LVL_DEBUG);
+                    BIS:logmsg(BIS:GetLocalizedMapName(npc.Zone), LVL_DEBUG);
+                    BIS:logmsg("NPC", LVL_DEBUG);
+                    BIS:logmsg(BIS:GetLocalizedNPCName(npc.Id), LVL_DEBUG);
                     BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." ("..npc.Chance.."%)");
                 end
                 BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ left/1024, right/1024, top/256, bottom/256 }));
@@ -433,6 +437,9 @@ function BIS:OnTooltipSetItem(frame)
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
         BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
         BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+    elseif ItemId == 32420 then
+        -- Chaotic Skyfire Diamond
+
     end
 
     BIS_TOOLTIP:Show();
@@ -483,7 +490,7 @@ function BIS:OnGameTooltipSetItem(frame)
     local pvp = 0;
 
     if BestInSlotTBCClassicDB.filter.raid then
-       raid = 1;
+        raid = 1;
     end
 
     if BestInSlotTBCClassicDB.filter.worldboss then
@@ -557,18 +564,16 @@ function BIS:OnGameTooltipSetItem(frame)
             end
         end
 
-        --if phase <= 1 then
-        --    text = (value.P1).." > "..(value.P2).." > "..(value.P3).." > "..(value.P4).." > "..(value.P5).." > "..(value.P6);
-        --elseif phase <= 2 then
-        --    text = text..(value.P2).." > "..(value.P3).." > "..(value.P4).." > "..(value.P5).." > "..(value.P6);
-        --elseif phase <= 3 then
-        --    text = text..(value.P3).." > "..(value.P4).." > "..(value.P5).." > "..(value.P6);
-        if phase <= 4 then
-            text = text..(value.P4).." > "..(value.P5).." > "..(value.P6);
+        if phase <= 1 then
+            text = (value.P1).." > "..(value.P2).." > "..(value.P3).." > "..(value.P4).." > "..(value.P5);
+        elseif phase <= 2 then
+            text = text..(value.P2).." > "..(value.P3).." > "..(value.P4).." > "..(value.P5);
+        elseif phase <= 3 then
+            text = text..(value.P3).." > "..(value.P4).." > "..(value.P5);
+        elseif phase <= 4 then
+            text = text..(value.P4).." > "..(value.P5);
         elseif phase <= 5 then
-            text = text..(value.P5).." > "..(value.P6);
-        else
-            text = text..(value.P6);
+            text = text..(value.P5);
         end
 
         if add then

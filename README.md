@@ -24,6 +24,10 @@ You can find this add-on on curse: https://www.curseforge.com/wow/addons/best-in
 
 Please use the issue tracker to report any bug/missing items/unordered list.
 
+# Join the community #
+
+You can join the BestInSlot Community on Discord (here)[https://discord.gg/HDM67HsaSG] !
+
 # Credits #
 
 Credit goes to all theorycrafters who provided their sources for the BIS lists, I've only gathered them together into this add-on. They all come from Wowhead.

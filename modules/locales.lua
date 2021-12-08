@@ -32,7 +32,12 @@ function BIS:GetLocalizedMapName(id)
         return info.name;
     end
 
-    return GetRealZoneText(id);
+    info = GetRealZoneText(id);
+    if info ~= nil and info ~= '' then
+        return info;
+    end
+
+    return C_Map.GetAreaInfo(id);
 end
 
 function BIS:GetLocalizedFactionName(id)

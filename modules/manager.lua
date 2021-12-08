@@ -109,7 +109,7 @@ BIS_dataSpecs = {
                     ["SPEC_ICONS"] = { 136145, 136172, 136186 },
                     ["VALUE"] = { 1, 2, 3 },
                     ["ICON"] = { 136020 },
-                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil }, { 3, nil, nil, nil, nil, nil } },
+                    ["MAGIC_RESISTANCE"] = { { 1, 4, nil, nil, nil, nil }, { 2, 4, nil, nil, nil, nil }, { 3, 4, nil, nil, nil, nil } },
                     ["WEAPON_ICONS"] = { { 17103, 19356 }, { 17103, 19356 }, { 17103, 19356 } }
                  },
     [11] = {   ["SPEC"] = { "Feral Tank (Value)", "Feral Tank (Mitigation)", "Feral Tank (Threat)", "Feral DPS", "Restoration", "Balance" },
@@ -153,10 +153,10 @@ BIS_specsFileToSpecs = {
 };
 
 local phases = {
-    ["NAME"] = { "Phase 1 (Karazhan)", "Phase 2 ("..DUNGEON_FLOOR_COILFANGRESERVOIR1..")", "Phase 3 ("..BIS:GetLocalizedMapName(339)..")", "Phase 4 ("..DUNGEON_FLOOR_ZULAMAN1..")", "Phase 5 ("..DUNGEON_FLOOR_SUNWELLPLATEAU0..")" },
+    ["NAME"] = { "Phase 1 ("..BIS:GetLocalizedMapName(3457)..")", "Phase 2 ("..DUNGEON_FLOOR_COILFANGRESERVOIR1..")", "Phase 3 ("..BIS:GetLocalizedMapName(339)..")", "Phase 4 ("..DUNGEON_FLOOR_ZULAMAN1..")", "Phase 5 ("..DUNGEON_FLOOR_SUNWELLPLATEAU0..")" },
     ["ICON"] = { "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_princemalchezaar_02", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_ladyvashj",  "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_illidan", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_zuljin", "Interface\\Addons\\BestInSlotTBCClassic\\assets\\achievement_boss_triumvirate_darknaaru"},
     ["VALUE"] = { 1       , 2        , 3        , 4         , 5        },
-    ["ENABLED"] = { true , true      , true     , true      , true     }
+    ["ENABLED"] = { true , true      , false     , false      , false     }
     };
 
 local function ResetUI()
