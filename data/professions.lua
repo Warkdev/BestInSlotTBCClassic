@@ -1,4 +1,5 @@
 PROFESSIONS = {
+    ["0"] = GetSpellTexture(4321),
     ["Alchemy"] = GetSpellTexture(2259),
     ["Blacksmithing"] = GetSpellTexture(2018),
     ["Enchanting"] = GetSpellTexture(7411),
@@ -9,6 +10,7 @@ PROFESSIONS = {
 }
 
 PROFESSIONS_NAME = {
+    ["0"] = GetSpellInfo(4321),
     ["Alchemy"] = GetSpellInfo(2259),
     ["Blacksmithing"] = GetSpellInfo(2018),
     ["Enchanting"] = GetSpellInfo(7411),

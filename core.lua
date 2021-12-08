@@ -43,6 +43,10 @@ local function SetFilterDefaults()
         BestInSlotTBCClassicDB.filter.twohands = false;
     end
 
+    if BestInSlotTBCClassicDB.filter.pvp == nil then
+        BestInSlotTBCClassicDB.filter.pvp = true;
+    end
+
     if BestInSlotTBCClassicDB.filter.soulboundBis == nil then
         BestInSlotTBCClassicDB.filter.soulboundBis = true;
     end

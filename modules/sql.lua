@@ -115,7 +115,7 @@ function BIS:SearchBisEnchant(class, phase, spec, invSlot, raid, twoHands)
   return result;
 end
 
-function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, twoHands, raid, worldBoss, itemId)
+function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, twoHands, raid, worldBoss, pvp, itemId)
   -- Temporary table with matching records.
   local temp = {};
   local result = {};
@@ -183,6 +183,11 @@ function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, t
 
     -- Filter on world boss items.
     if match and not worldBoss and BIS_ITEMS[value.ItemId] ~= nil and BIS_ITEMS[value.ItemId].WorldBoss then
+      match = false
+    end
+
+    -- Filter on pvp items.
+    if match and not pvp and BIS_ITEMS[value.ItemId] ~= nil and BIS_ITEMS[value.ItemId].PvP then
       match = false
     end
 

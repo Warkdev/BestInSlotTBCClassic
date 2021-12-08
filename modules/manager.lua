@@ -4,15 +4,15 @@ local window;
 local visible;
 local dropdownRace, dropdownClass, dropdownSpec, dropdownPhase;
 local selectedRace, selectedClass, selectedSpec, selectedPhase, selectedRank, selectedMagicResist;
-local twoHands, worldBoss, raid;
+local pvp, twoHands, worldBoss, raid;
 
 local rootPaperDoll = "Interface\\PaperDoll\\";
 
 local iconRacePath = "Interface\\Glues\\CHARACTERCREATE\\UI-CharacterCreate-Races";
 local iconClassPath = "Interface\\GLUES\\CHARACTERCREATE\\UI-CharacterCreate-BIS_classes";
 local iconCutoff = 6;
-local iconTwoHands_Swords = 135360;
-local iconTwoHands_Staff = 135226;
+local iconAlliance = 132486;
+local iconHorde = 132485;
 
 local characterFrames = {
     ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Bags" },
@@ -223,6 +223,7 @@ local function ResetUI()
                 _G["frame_MAGIC_"..key]:Show();
             end
         end
+        _G["frame_PVP"]:Show();
         _G["frame_WORLD_BOSS"]:Show();
         _G["frame_SOULBOUND"]:Show();
         if raid then
@@ -233,6 +234,7 @@ local function ResetUI()
             _G["frame_DUNGEON"]:Show();
         end
 
+        _G["frame_PVP_ICON"]:SetDesaturated(not pvp);
         _G["frame_WORLD_BOSS_ICON"]:SetDesaturated(not worldBoss);
         _G["frame_SOULBOUND_ICON"]:SetDesaturated(not BestInSlotTBCClassicDB.filter.soulboundBis);
         if twoHands then
@@ -272,6 +274,7 @@ local function ResetUI()
         for key, value in pairs(magicResistances.NAME) do
             _G["frame_MAGIC_"..key]:Hide();
         end
+        _G["frame_PVP"]:Hide();
         _G["frame_WORLD_BOSS"]:Hide();
         _G["frame_RAID"]:Hide();
         _G["frame_DUNGEON"]:Hide();
@@ -321,12 +324,12 @@ local function Update()
 
     if selectedMagicResist == 1 then
         BIS:logmsg("Searching for BIS items with the following settings Race Idx ("..selectedRace.."), Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
-        temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, selectedSpec, nil, twoHands, raid, worldBoss, nil);
+        temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, selectedSpec, nil, twoHands, raid, worldBoss, pvp, nil);
         BIS:logmsg("Searching for BIS enchants with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, selectedSpec, nil, raid, twoHands);
     else
         BIS:logmsg("Searching for BIS items with the following settings Race Idx ("..selectedRace.."), Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
-        temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, twoHands, raid, worldBoss, nil);
+        temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, twoHands, raid, worldBoss, pvp, nil);
         BIS:logmsg("Searching for BIS enchants with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, raid, twoHands);
     end
@@ -496,6 +499,12 @@ local function HandleSpecIcon(self)
     Update();
 end
 
+local function HandlePvPIcon(self)
+    pvp = not pvp;
+    BestInSlotTBCClassicDB.filter.pvp = pvp;
+    Update();
+end
+
 local function HandleRaidIcon(self)
     raid = not raid;
     BestInSlotTBCClassicDB.filter.raid = raid;
@@ -598,7 +607,7 @@ function BIS:ShowManager()
     if window == nil then
         local iconSize = 60;
         local smallIcon = iconSize / 3;
-        local gender;
+        local pvpIcon, gender;
 
         visible = false;
         selectedRace = RACES_IDX[race];
@@ -632,6 +641,7 @@ function BIS:ShowManager()
         end
 
         raid = BestInSlotTBCClassicDB.filter.raid;
+        pvp = BestInSlotTBCClassicDB.filter.pvp;
         twoHands = BestInSlotTBCClassicDB.filter.twohands;
         worldBoss = BestInSlotTBCClassicDB.filter.worldboss;
 
@@ -643,6 +653,13 @@ function BIS:ShowManager()
         BIS:CreateClickableIconFrame("frame_ONE_HAND", window, INVTYPE_WEAPON , 16, 16, 550, -50, nil, nil, HandleTwoHandsIcon, false);
         BIS:CreateClickableIconFrame("frame_TWO_HANDS", window, TWO_HANDED, 16, 16, 550, -50, nil, nil, HandleTwoHandsIcon, false);
 
+        if faction == "Horde" then
+            pvpIcon = iconHorde;
+        else
+            pvpIcon = iconAlliance;
+        end
+
+        BIS:CreateClickableIconFrame("frame_PVP", window, PLAYER_V_PLAYER, 16, 16, 575, -50, pvpIcon, nil, HandlePvPIcon, not pvp);
         BIS:CreateClickableIconFrame("frame_SOULBOUND", window, ITEM_SOULBOUND, 16, 16, 600, -50, "Interface\\LootFrame\\LootToast", { 612/1024, 644/1024, 224/256, 256/256 }, HandleSoulboundIcon, not BestInSlotTBCClassicDB.filter.soulboundBis);
 
         for idx, value in pairs(magicResistances.NAME) do

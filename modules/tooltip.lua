@@ -1,6 +1,8 @@
 BIS_TOOLTIP = nil;
 
 local iconRacePath = "Interface\\Glues\\CHARACTERCREATE\\UI-CharacterCreate-Races";
+local iconArena = 4006481;
+local iconHonor = 132485;
 
 local function iconOffset(col, row)
 	local offsetString = (col * 64 + iconCutoff) .. ":" .. ((col + 1) * 64 - iconCutoff)
@@ -182,27 +184,43 @@ function BIS:OnTooltipSetItem(frame)
                         factionId = itemInfo.HordeFactionId;
                     end
                     if itemInfo.Price == 0 then
-                        if itemInfo.PvPRank == 0 and factionId == 0 then
+                        if factionId == 0 then
                             BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." (Unknown) - Unknown price ");
                         else
-                            if itemInfo.PvPRank ~= 0 then
-                                BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." (R"..itemInfo.PvPRank..") - Unknown price ");
-                            else
-                                BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." ("..BIS:GetLocalizedFactionName(factionId).." - "..BIS:GetLocalizedReputationLevel(itemInfo.ReputationLevel)..") - Unknown price ");
-                            end
+                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." ("..BIS:GetLocalizedFactionName(factionId).." - "..BIS:GetLocalizedReputationLevel(itemInfo.ReputationLevel)..") - Unknown price ");
                         end
                     else
-                        if itemInfo.PvPRank == 0 and factionId == 0 then
-                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - "..GetMoneyString(itemInfo.Price, true));
-                        else
-                            if itemInfo.PvPRank ~= 0 then
-                                BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." (R"..itemInfo.PvPRank..") - "..GetMoneyString(itemInfo.Price, true));
+                        if itemInfo.CurrencyType == 0 then
+                            if factionId == 0 then
+                                BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - "..GetMoneyString(itemInfo.Price, true));
                             else
                                 BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." ("..BIS:GetLocalizedFactionName(factionId).." - "..BIS:GetLocalizedReputationLevel(itemInfo.ReputationLevel)..") - "..GetMoneyString(itemInfo.Price, true));
                             end
+                        elseif itemInfo.CurrencyType == 1 then
+                            BIS_TOOLTIP:AddLine(itemInfo.Price);
+                            BIS_TOOLTIP:AddTexture(C_CurrencyInfo.GetCurrencyInfo(1900).iconFileID);
+                        elseif itemInfo.CurrencyType == 2 then
+                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - ".."|T"..GetItemIcon(itemInfo.TokenId)..":"..bis_defaultIconSize.."|t x"..itemInfo.Price);
                         end
                     end
                     BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ left/1024, right/1024, top/256, bottom/256 }));
+                end
+            end
+            -- We have a token currency.
+            if itemInfo.CurrencyType == 2 then
+                details_token = ITEMS_LOOT[itemInfo.TokenId];
+                local count_token = table.getn(details_token.NPC);
+                if(count_token > 5) then
+                    count_token = 5
+                end
+                for idl=1, count_token, 1 do
+                    local npc_token = details_token.NPC[idl];
+                    if npc_token.Chance == -1 then
+                        BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." (Unknown)");
+                    else
+                        BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." ("..npc_token.Chance.."%)");
+                    end
+                    BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ 612/1024, 644/1024, 224/256, 256/256 }));
                 end
             end
         end
@@ -497,6 +515,10 @@ function BIS:OnGameTooltipSetItem(frame)
         worldboss = 1;
     end
 
+    if BestInSlotClassicDB.filter.pvp then
+        pvp = 1;
+    end
+
     if BIS_TOOLTIP_RANKING[itemId] == nil or BIS_TOOLTIP_RANKING[itemId][suffixId] == nil or BIS_TOOLTIP_RANKING[itemId][suffixId][faction][raid][worldboss][pvp][14] == nil then
         return;
     end
@@ -507,12 +529,12 @@ function BIS:OnGameTooltipSetItem(frame)
     local gender = UnitSex("player") - 1;
 
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
-    BIS_LibExtraTip:AddLine(frame,"# BIS-Classic:",r,g,b,true);
-    --BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3 > P4 > P5 > P6" ,r,g,b, r,g,b, true);
-    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Races - Spec", "P4 > P5 > P6" ,r,g,b, r,g,b, true);
+    BIS_LibExtraTip:AddLine(frame,"# BIS-TBC-Classic:",r,g,b,true);
+    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3 > P4 > P5" ,r,g,b, r,g,b, true);
+    --BIS_LibExtraTip:AddDoubleLine(frame,"Class - Races - Spec", "P4 > P5" ,r,g,b, r,g,b, true);
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
 
-    for key, value in pairs(BIS_TOOLTIP_RANKING[itemId][suffixId][faction][raid][worldboss][pvp][14]) do
+    for key, value in pairs(BIS_TOOLTIP_RANKING[itemId][suffixId][faction][raid][worldboss][pvp]) do
         local color = RAID_CLASS_COLORS[C_CreatureInfo.GetClassInfo(value.classId).classFile];
         local text = "";
         local add = false;

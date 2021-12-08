@@ -1,7 +1,7 @@
 ITEMS_CONTAINER = { };
-ITEMS_CONTAINER[31140] = { Containers = {  { Zone = 3562, Id = 184930, Chance = 0.7935 }, { Zone = 3792, Id = 184930, Chance = 0.7935 }, { Zone = 3713, Id = 184930, Chance = 0.7935 }, { Zone = -1, Id = 184930, Chance = 0.7935 } } };
 ITEMS_CONTAINER[28753] = { Containers = {  { Zone = 3457, Id = 185119, Chance = 14.08 } } };
-ITEMS_CONTAINER[23025] = { Containers = {  { Zone = 3456, Id = 181366, Chance = 11.48 } } };
-ITEMS_CONTAINER[24692] = { Containers = {  { Zone = 3790, Id = 184940, Chance = 1.961 }, { Zone = 3562, Id = 184940, Chance = 1.961 }, { Zone = 3792, Id = 184940, Chance = 1.961 }, { Zone = -1, Id = 184940, Chance = 1.961 }, { Zone = 3790, Id = 184941, Chance = 1.563 }, { Zone = 3562, Id = 184941, Chance = 1.563 }, { Zone = 3792, Id = 184941, Chance = 1.563 }, { Zone = -1, Id = 184941, Chance = 1.563 }, { Zone = 0, Id = 32064, Chance = 1.437 } } };
 ITEMS_CONTAINER[31297] = { Containers = {  { Zone = 3791, Id = 184939, Chance = 0.9843 }, { Zone = 3790, Id = 184941, Chance = 0.8549 }, { Zone = 3562, Id = 184941, Chance = 0.8549 }, { Zone = 3792, Id = 184941, Chance = 0.8549 }, { Zone = -1, Id = 184941, Chance = 0.8549 }, { Zone = 0, Id = 31952, Chance = 0.1207 } } };
+ITEMS_CONTAINER[24692] = { Containers = {  { Zone = 3790, Id = 184940, Chance = 1.961 }, { Zone = 3562, Id = 184940, Chance = 1.961 }, { Zone = 3792, Id = 184940, Chance = 1.961 }, { Zone = -1, Id = 184940, Chance = 1.961 }, { Zone = 3790, Id = 184941, Chance = 1.563 }, { Zone = 3562, Id = 184941, Chance = 1.563 }, { Zone = 3792, Id = 184941, Chance = 1.563 }, { Zone = -1, Id = 184941, Chance = 1.563 }, { Zone = 0, Id = 32064, Chance = 1.437 } } };
 ITEMS_CONTAINER[31149] = { Containers = {  { Zone = 3713, Id = 184933, Chance = 0.7944 }, { Zone = 3717, Id = 184933, Chance = 0.7944 } } };
+ITEMS_CONTAINER[23025] = { Containers = {  { Zone = 3456, Id = 181366, Chance = 11.48 } } };
+ITEMS_CONTAINER[31140] = { Containers = {  { Zone = 3562, Id = 184930, Chance = 0.7935 }, { Zone = 3792, Id = 184930, Chance = 0.7935 }, { Zone = 3713, Id = 184930, Chance = 0.7935 }, { Zone = -1, Id = 184930, Chance = 0.7935 } } };
