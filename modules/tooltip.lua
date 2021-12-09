@@ -518,7 +518,7 @@ function BIS:OnGameTooltipSetItem(frame)
         worldboss = 1;
     end
 
-    if BestInSlotClassicDB.filter.pvp then
+    if BestInSlotTBCClassicDB.filter.pvp then
         pvp = 1;
     end
 
