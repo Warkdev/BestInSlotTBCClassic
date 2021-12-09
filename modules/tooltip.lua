@@ -197,10 +197,13 @@ function BIS:OnTooltipSetItem(frame)
                                 BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." ("..BIS:GetLocalizedFactionName(factionId).." - "..BIS:GetLocalizedReputationLevel(itemInfo.ReputationLevel)..") - "..GetMoneyString(itemInfo.Price, true));
                             end
                         elseif itemInfo.CurrencyType == 1 then
-                            BIS_TOOLTIP:AddLine(itemInfo.Price);
-                            BIS_TOOLTIP:AddTexture(C_CurrencyInfo.GetCurrencyInfo(1900).iconFileID);
+                            local content = BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - "..itemInfo.Price.." |T"..C_CurrencyInfo.GetCurrencyInfo(itemInfo.CurrencyId).iconFileID..":"..bis_defaultIconSize.."|t"
+                            if itemInfo.TokenId ~= 0 then
+                                content = content.." "..itemInfo.TokenCount.." |T"..GetItemIcon(itemInfo.TokenId)..":"..bis_defaultIconSize.."|t"
+                            end
+                            BIS_TOOLTIP:AddLine(content);
                         elseif itemInfo.CurrencyType == 2 then
-                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - ".."|T"..GetItemIcon(itemInfo.TokenId)..":"..bis_defaultIconSize.."|t x"..itemInfo.Price);
+                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc.Zone).." - "..BIS:GetLocalizedNPCName(npc.Id).." - ".."|T"..GetItemIcon(itemInfo.TokenId)..":"..bis_defaultIconSize.."|t "..itemInfo.Price);
                         end
                     end
                     BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ left/1024, right/1024, top/256, bottom/256 }));

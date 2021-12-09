@@ -47,6 +47,9 @@ table.insert(BIS_LINKS, {ClassId = 9, SpecId = 1, ItemId = 29341, Priority = 97,
 table.insert(BIS_LINKS, {ClassId = 9, SpecId = 1, ItemId = 28191, Priority = 98, OffHand = false, Races = nil, SuffixId = 0 }); -- P1 Pre
 table.insert(BIS_LINKS, {ClassId = 9, SpecId = 1, ItemId = 28232, Priority = 99, OffHand = false, Races = nil, SuffixId = 0 }); -- P1 Pre
 
+table.insert(BIS_LINKS, {ClassId = 9, SpecId = 1, ItemId = 33067, Priority = 99, OffHand = false, Races = nil, SuffixId = 0 }); -- P2
+table.insert(BIS_LINKS, {ClassId = 9, SpecId = 1, ItemId = 32055, Priority = 99, OffHand = false, Races = nil, SuffixId = 0 }); -- P2
+
 ---- WRISTS - SLOT 9
 
 ---- HANDS - SLOT 10
