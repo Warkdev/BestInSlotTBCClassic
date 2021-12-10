@@ -56,69 +56,69 @@ BIS_classes = {
 };
 
 BIS_dataSpecs = {
-    [1] = { ["SPEC"] = { "Fury", "Protection (Threat)", "Protection (Mitigation)" },
-                    ["SPEC_ICONS"] = { 132347, 136101, 134952 },
-                    ["VALUE"] = { 1, 2, 3 },
-                    ["ICON"] = { 135328 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 4, 5, nil, nil, nil }, { 2, 4, 5, nil, nil, nil }, { 3, 4, 5, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 12940, 19364 }, { 19019, nil }, { 19019, nil } }
-                },
-    [2] = { ["SPEC"] = { "Holy", "Protection", "Retribution (AP)", "Retribution (Spelladin)" },
-                    ["SPEC_ICONS"] = { 135920, 135893, 135873, 135959 },
+    [1] = { ["SPEC"] = { "Arms", "Fury", "Protection (Threat)", "Protection (Mitigation)" },
+                    ["SPEC_ICONS"] = { 132355, 132347, 136101, 134952 },
                     ["VALUE"] = { 1, 2, 3, 4 },
-                    ["ICON"] = { 132325 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 5, 8, nil, nil, nil }, { 2, 6, 8, nil, nil, nil }, { 3, 7, 8, nil, nil, nil }, { 4, 7, 8, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 19360, nil }, { 19360, nil }, { nil, 19364 }, { 19019, 19169 } }
-                 },
-    [3] = {  ["SPEC"] = { "Normal", "Melee Weave" },
-                    ["SPEC_ICONS"] = { 135489, 132215 },
-                    ["VALUE"] = { 1, 2 },
-                    ["ICON"] = { 135495 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 5, 3, nil, 4, nil }, { 2, 5, 3, nil, 4, nil } },
-                    ["WEAPON_ICONS"] = { { 18805, 18520 }, { 18805, 18520 } }
+                    ["ICON"] = { 135328 },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 1, nil, nil, nil, nil, nil }, { 2, nil, 5, nil, 6, nil }, { 3, nil, 5, nil, 6, nil } },
+                    ["WEAPON_ICONS"] = { { 12940, 19364 }, { 12940, nil }, { 19019, nil }, { 19019, nil } }
                 },
-    [4] = {   ["SPEC"] = { "Swords", "Daggers" },
-                    ["SPEC_ICONS"] = { 135328, 135641 },
-                    ["VALUE"] = { 1, 2 },
+    [2] = { ["SPEC"] = { "Holy", "Protection", "Retribution" },
+                    ["SPEC_ICONS"] = { 135920, 135893, 135873 },
+                    ["VALUE"] = { 1, 2, 3 },
+                    ["ICON"] = { 132325 },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, 4, nil, 5, nil }, { 3, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 19360, nil }, { 19360, nil }, { nil, 19364 } }
+                },
+    [3] = {  ["SPEC"] = { "Beast Mastery", "Marksmanship", "Survival" },
+                    ["SPEC_ICONS"] = { 132127, 132329, 135125 },
+                    ["VALUE"] = { 1, 2, 3 },
+                    ["ICON"] = { 135495 },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil }, { 3, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 18805, 18520 }, { 18805, 18520 }, { 18805, 18520 } }
+                },
+    [4] = {   ["SPEC"] = { "Any" },
+                    ["SPEC_ICONS"] = { 135328 },
+                    ["VALUE"] = { 1 },
                     ["ICON"] = { 135428 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 3, nil, nil, nil, nil }, { 2, 3, nil, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 19352, nil }, { 19346, nil } }
-                 },
-    [5] = {  ["SPEC"] = { "Holy / Discipline", "Shadow" },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 19352, nil } }
+                },
+    [5] = {  ["SPEC"] = { "Holy", "Shadow" },
                     ["SPEC_ICONS"] = { 135941, 136224 },
                     ["VALUE"] = { 1, 2 },
                     ["ICON"] = { 135167 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 3, nil, nil, nil, nil }, { 2, 3, nil, nil, nil, nil } },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil } },
                     ["WEAPON_ICONS"] = { { 19360, 18608 }, { 19360, 18609 } }
-                 },
-    [7] = {  ["SPEC"] = { "Restoration", "Enhancement" },
-                    ["SPEC_ICONS"] = { 136052, 136018 },
-                    ["VALUE"] = { 1, 2 },
-                    ["ICON"] = { 133437 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 3, nil, nil, nil, nil }, { 2, 4, nil, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 19360, 19356 }, { nil, 19364 } }
                 },
-    [8] = {    ["SPEC"] = { "Frost/Fire", "Zero SP", "Alternative" },
-                    ["SPEC_ICONS"] = { 135866, 132643, 134614 },
+    [7] = {  ["SPEC"] = { "Restoration", "Enhancement", "Elemental" },
+                    ["SPEC_ICONS"] = { 136052, 136018, 136048 },
+                    ["VALUE"] = { 1, 2, 3 },
+                    ["ICON"] = { 133437 },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil }, { 3, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 19360, 19356 }, { 32944, nil }, { 19360, 19356 } }
+                },
+    [8] = {    ["SPEC"] = { "Arcane", "Fire", "Frost" },
+                    ["SPEC_ICONS"] = { 135735, 135812, 135846 },
                     ["VALUE"] = { 1, 2, 3 },
                     ["ICON"] = { 135150 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 4, 5, 7, 6, nil }, { 2, 4, 5, 7, 6, nil }, { 3, 4, 5, 7, 6, nil } },
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, nil, nil, nil, nil }, { 2, nil, nil, nil, nil, nil }, { 3, nil, nil, nil, nil, nil } },
                     ["WEAPON_ICONS"] = { { 17103, 19356 }, { 17103, 19356 }, { 17103, 19356 } }
-                 },
+                },
     [9] = { ["SPEC"] = { "Affliction", "Demonology", "Destruction" },
-                    ["SPEC_ICONS"] = { 136145, 136172, 136186 },
+                    ["SPEC_ICONS"] = { 136145, 136172, 135789 },
                     ["VALUE"] = { 1, 2, 3 },
                     ["ICON"] = { 136020 },
                     ["MAGIC_RESISTANCE"] = { { 1, 4, nil, nil, nil, nil }, { 2, 4, nil, nil, nil, nil }, { 3, 4, nil, nil, nil, nil } },
                     ["WEAPON_ICONS"] = { { 17103, 19356 }, { 17103, 19356 }, { 17103, 19356 } }
-                 },
-    [11] = {   ["SPEC"] = { "Feral Tank (Value)", "Feral Tank (Mitigation)", "Feral Tank (Threat)", "Feral DPS", "Restoration", "Balance" },
-                    ["SPEC_ICONS"] = { 132276, 132276, 132276, 132115, 136041, 136036 },
-                    ["VALUE"] = { 1, 2, 3, 4, 5, 6 },
+                },
+    [11] = {   ["SPEC"] = { "Feral Tank (Mitigation)", "Feral Tank (Threat)", "Feral DPS", "Restoration", "Balance" },
+                    ["SPEC_ICONS"] = { 132276, 132117, 132115, 136041, 136036 },
+                    ["VALUE"] = { 1, 2, 3, 4, 5 },
                     ["ICON"] = { 134297 },
-                    ["MAGIC_RESISTANCE"] = { { 1, 7, 9, 10, 8, 11 }, { 2, 7, 9, 10, 8, 11 }, { 3, 7, 9, 10, 8, 11 }, { 4, 7, 9, 10, 8, 11 }, { 6, 7, 9, 10, 8, 11 }, { 6, 7, 9, 10, 8, 11 } },
-                    ["WEAPON_ICONS"] = { { 19335, 9449 }, { 19335, 9449 }, { 19335, 9449 }, { 18805, 9449 }, { 19360, 19356 }, { 19360, 19356 } }
-                 }
+                    ["MAGIC_RESISTANCE"] = { { 1, nil, 6, nil, 7, nil }, { 2, nil, 6, nil, 7, nil }, { 3, nil, nil, nil, nil, nil }, { 4, nil, nil, nil, nil, nil }, { 5, nil, nil, nil, nil, nil } },
+                    ["WEAPON_ICONS"] = { { 19335, 9449 }, { 19335, 9449 }, { 18805, 9449 }, { 19360, 19356 }, { 19360, 19356 } }
+                }
 };
 
 BIS_specsFileToSpecs = {
