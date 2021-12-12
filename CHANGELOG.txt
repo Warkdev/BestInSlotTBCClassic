@@ -1,2 +1,5 @@
+# 2.0.0 (12-12-2021)
+- Adding BIS sets for all class for TBC release
+
 # 0.0.1 (02-12-2021)
 - Initial commit

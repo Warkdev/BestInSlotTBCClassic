@@ -98,8 +98,8 @@ function BIS:LoadPlayerInfo()
     local maxPoints = 0;
     spec = "Unknown";
 
-    -- No need to check the spec when below level 60.
-    if level < 60 then
+    -- No need to check the spec when below level 65.
+    if level < 65 then
         return;
     end
 
@@ -120,13 +120,6 @@ function BIS:LoadPlayerInfo()
         BIS:logmsg(name..": "..pointsSpent..", "..fileName, LVL_DEBUG);
     end
 
-    if class == "WARRIOR" and spec == "WarriorFury" then
-        -- Trying to find if we've a Fury Prot.
-        if talentsPoints[3] > 10 then
-            spec = "WarriorFuryProtection";
-        end
-    end
-
     if class == "DRUID" and spec == "DruidFeralCombat" then
         -- Need to find out whether it's a Feral Tank or DPS.
         -- This is done by checking the talent thick skin.
@@ -144,14 +137,7 @@ function BIS:LoadPlayerInfo()
     end
 
     if class == "ROGUE" then
-        -- Need to check if his spec is daggers or swords.
-        -- This is done by checking the imp. swords talent. If that's maximized, we consider that this rogue is using swords.
-        local talentName, iconTexture, tier, column, rank, maxRank, isExceptional, available = GetTalentInfo(2, 15);
-        if rank == maxRank then
-            spec = "RogueSwords";
-        else
-            spec = "RogueDaggers";
-        end
+        spec = "RogueAny"
     end
 
     BIS:logmsg("Your spec is: "..spec, LVL_DEBUG);
