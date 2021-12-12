@@ -11,7 +11,7 @@ local function MinimapButtonOnClick(self, button)
 end
 
 local function MinimapTooltipShow(tooltip)
-    tooltip:AddLine("BestInSlot-Classic");
+    tooltip:AddLine("BestInSlotTBC-Classic");
     tooltip:AddLine("Version: "..VERSION);
     tooltip:AddLine("Left-Click: Open the main window");
     tooltip:AddLine("Right-Click: Open the settings window");
