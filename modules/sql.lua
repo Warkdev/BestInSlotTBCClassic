@@ -146,6 +146,8 @@ function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, t
     match = true;
 
     -- Checking if faction must be checked either from the search or from the table.
+    print(value.ItemId)
+    print(BIS_ITEMS[value.ItemId])
     if match and faction ~= nil and BIS_ITEMS[value.ItemId].Faction ~= nil and not(BIS:containsValue(BIS_ITEMS[value.ItemId].Faction, faction)) then
       match = false;
     end
