@@ -15,26 +15,48 @@ local iconAlliance = 132486;
 local iconHorde = 132485;
 
 local characterFrames = {
-    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Bags" },
-    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 9 },
+    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gems", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Bags" },
+    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 9 },
     ["ICON"] = {
         "UI-PaperDoll-Slot-Head.PNG", "UI-PaperDoll-Slot-Neck.PNG", "UI-PaperDoll-Slot-Shoulder.PNG", "UI-PaperDoll-Slot-REar.PNG", "UI-PaperDoll-Slot-Chest.PNG", "UI-PaperDoll-Slot-Shirt.PNG", "UI-PaperDoll-Slot-Tabard.PNG",
-        "UI-PaperDoll-Slot-Wrists.PNG", "UI-PaperDoll-Slot-Hands.PNG", "UI-PaperDoll-Slot-Waist.PNG", "UI-PaperDoll-Slot-Legs.PNG", "UI-PaperDoll-Slot-Feet.PNG", "UI-PaperDoll-Slot-Finger.PNG",
+        "UI-PaperDoll-Slot-Wrists.PNG", "UI-backpack-emptyslot.PNG", "UI-PaperDoll-Slot-Hands.PNG", "UI-PaperDoll-Slot-Waist.PNG", "UI-PaperDoll-Slot-Legs.PNG", "UI-PaperDoll-Slot-Feet.PNG", "UI-PaperDoll-Slot-Finger.PNG",
         "UI-PaperDoll-Slot-Finger.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-MainHand.PNG", "UI-PaperDoll-Slot-SecondaryHand.PNG", "UI-PaperDoll-Slot-Ranged.PNG", "UI-PaperDoll-Slot-Bag.PNG"
     },
     ["FRAME_ALIGNMENT"] = {
-        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM", "RIGHT"
+        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM", "RIGHT"
     },
     ["ICON_ALIGNMENT"] = {
-        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT"
+        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT"
     },
-    ["ENCHANT"] = { true, false, true, true, true, false, false, true, true, false, true, true, false, false, false, false, true, true, true, false }
+    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, false, true, true, false, false, false, false, true, true, true, false, false },
+    ["GEMS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["META"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false }
 };
+
+local iconRanged = {
+    [1] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [2] = "Ui-paperdoll-slot-relic.png",
+    [3] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [4] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [5] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [6] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [7] = "Ui-paperdoll-slot-relic.png",
+    [8] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [10] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [11] = "Ui-paperdoll-slot-relic.png"
+}
 
 local magicResistances = {
     ["NAME"] = { RESISTANCE_TYPE0, RESISTANCE_TYPE2 , RESISTANCE_TYPE3 , RESISTANCE_TYPE5 , RESISTANCE_TYPE4 , RESISTANCE_TYPE6 },
     ["LABEL"] = { RESISTANCE0_NAME , RESISTANCE2_NAME , RESISTANCE3_NAME , RESISTANCE5_NAME , RESISTANCE4_NAME, RESISTANCE6_NAME },
     ["ID"] = { 2, 3, 4, 6, 5, 7 }
+}
+
+local gemsIcons = {
+    [1] = "interface\\itemsocketingframe\\ui-emptysocket-red.blp",
+    [2] = "interface\\itemsocketingframe\\ui-emptysocket-blue.blp",
+    [3] = "interface\\itemsocketingframe\\ui-emptysocket-yellow.blp"
 }
 
 BIS_races = {
@@ -117,7 +139,7 @@ BIS_dataSpecs = {
                     ["VALUE"] = { 1, 2, 3, 4, 5 },
                     ["ICON"] = { 134297 },
                     ["MAGIC_RESISTANCE"] = { { 1, nil, 6, nil, 7, nil }, { 2, nil, 6, nil, 7, nil }, { 3, nil, nil, nil, nil, nil }, { 4, nil, nil, nil, nil, nil }, { 5, nil, nil, nil, nil, nil } },
-                    ["WEAPON_ICONS"] = { { 19335, 9449 }, { 19335, 9449 }, { 18805, 9449 }, { 19360, 19356 }, { 19360, 19356 } }
+                    ["WEAPON_ICONS"] = { { nil, 9449 }, { nil, 9449 }, { nil, 9449 }, { 19360, 19356 }, { 19360, 19356 } }
                 }
 };
 
@@ -165,6 +187,10 @@ local function ResetUI()
     end
 
     for key, value in pairs(characterFrames.NAME) do
+        if characterFrames.RANGED[key] then
+            print(value)
+            _G["IconFrame_"..value.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+        end
         if characterFrames.ENCHANT[key] then
             for i=1, 2, 1 do
                 _G["frame_"..value.."_"..i.."_ENCHANT_ICON"]:SetTexture(nil);
@@ -173,11 +199,24 @@ local function ResetUI()
             end
         end
         for i=1, 3, 1 do
-            _G["frame_"..value.."_"..i.."_CHECK_ICON"]:SetTexture(nil);
-            _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..characterFrames.ICON[key]);
-            _G["frame"..value.."_"..i.."_TEXT"]:SetText("");
-            _G["ItemFrame_"..value.."_"..i]:SetScript("OnEnter", nil);
-            _G["ItemFrame_"..value.."_"..i]:SetScript("OnLeave", nil);
+            if characterFrames.GEMS[key] then
+                -- Special handling for gems slot
+                _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(gemsIcons[i]);
+                for j=1, 6, 1 do
+                    _G["frame_"..value.."_"..i.."_"..j.."_ICON"]:SetTexture(gemsIcons[i]);
+                end
+            else
+                _G["frame_"..value.."_"..i.."_CHECK_ICON"]:SetTexture(nil);
+                if characterFrames.RANGED[key] then
+                    print(rootPaperDoll..iconRanged[selectedClass])
+                    _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+                else
+                    _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..characterFrames.ICON[key]);
+                end
+                _G["frame"..value.."_"..i.."_TEXT"]:SetText("");
+                _G["ItemFrame_"..value.."_"..i]:SetScript("OnEnter", nil);
+                _G["ItemFrame_"..value.."_"..i]:SetScript("OnLeave", nil);
+            end
         end
     end
 
@@ -620,6 +659,8 @@ function BIS:ShowManager()
         window = BIS:CreateWindow("BISManager", 1100, 750);
         window.childFrame = {};
         window.enchantFrame = {};
+        window.metaFrame = {};
+        window.gemsFrame = {};
 
         BIS_TOOLTIP = BIS:CreateGameTooltip("BIS_TOOLTIP", window);
 
@@ -672,6 +713,8 @@ function BIS:ShowManager()
         for i = 1, table.getn(characterFrames.NAME), 1 do
             window.childFrame[i] = {};
             window.enchantFrame[i] = {};
+            window.metaFrame[i] = {};
+            window.gemsFrame[i] = {};
             if characterFrames.FRAME_ALIGNMENT[i] == "LEFT" then
                 startX = 20;
                 startY = -45 - ((iconSize + 10) * (characterFrames.INDEX[i] - 1));
@@ -683,7 +726,11 @@ function BIS:ShowManager()
                 startY = -680;
             end
 
-            BIS:CreateIconFrame("IconFrame_"..characterFrames.NAME[i], window, iconSize, iconSize, startX, startY, rootPaperDoll..characterFrames.ICON[i]);
+            if characterFrames.RANGED[i] then
+                BIS:CreateIconFrame("IconFrame_"..characterFrames.NAME[i], window, iconSize, iconSize, startX, startY, rootPaperDoll..iconRanged[selectedClass]);
+            else
+                BIS:CreateIconFrame("IconFrame_"..characterFrames.NAME[i], window, iconSize, iconSize, startX, startY, rootPaperDoll..characterFrames.ICON[i]);
+            end
 
             if characterFrames.ENCHANT[i] then
                 for j = 1, 2 do
@@ -704,45 +751,85 @@ function BIS:ShowManager()
                 end
             end
 
-            for j = 1, 3, 1 do
-                window.childFrame[i][j] = CreateFrame("Frame", "ItemFrame_"..characterFrames.NAME[i].."_"..j, window);
-                window.childFrame[i][j]:SetSize(200, 17);
-
-                if characterFrames.ICON_ALIGNMENT[i] == "RIGHT" then
-                    offsetX = iconSize;
-                    offsetY = - (smallIcon * (j - 1));
-                    checkOffsetX = 0;
-                    checkOffsetY = 0;
-                    iconOffsetX = smallIcon;
-                    iconOffsetY = 0;
-                    textOffsetX = smallIcon + smallIcon;
-                    textOffsetY = 0;
-                    textJustify = "LEFT";
-                elseif characterFrames.ICON_ALIGNMENT[i] == "LEFT" then
-                    offsetX = -200;
-                    offsetY = - (smallIcon * (j - 1));
-                    checkOffsetX = 200 - smallIcon;
-                    checkOffsetY = 0;
-                    iconOffsetX = 200 - smallIcon - smallIcon;
-                    iconOffsetY = 0;
-                    textOffsetX = -smallIcon;
-                    textOffsetY = 0;
-                    textJustify = "RIGHT";
-                else
-                    offsetX = smallIcon - (iconSize);
-                    offsetY = iconSize - (iconSize * (j - 1) / 3);
-                    checkOffsetX = 0;
-                    checkOffsetY = 0
-                    iconOffsetX = smallIcon;
-                    iconOffsetY = 0;
-                    textOffsetX = smallIcon + smallIcon;
-                    textOffsetY = 0;
-                    textJustify = "LEFT";
+            if characterFrames.META[i] then
+                for j = 1, 2 do
+                    window.metaFrame[i][j] = CreateFrame("Frame", "MetaFrame_"..characterFrames.NAME[i].."_"..j, window);
+                    window.metaFrame[i][j]:SetSize(17,17);
+                    if characterFrames.ICON_ALIGNMENT[i] == "RIGHT" then
+                        offsetX = 0;
+                        offsetY = (iconSize - smallIcon) * (j - 1);
+                    elseif characterFrames.ICON_ALIGNMENT[i] == "LEFT" then
+                        offsetX = iconSize - smallIcon;
+                        offsetY = (iconSize - smallIcon) * (j - 1);
+                    else
+                        offsetX = (iconSize - smallIcon) * (j - 1);
+                        offsetY = 0;
+                    end
+                    window.metaFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY - offsetY);
+                    BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_META", window.metaFrame[i][j], smallIcon, smallIcon, 0, 0, "interface\\itemsocketingframe\\ui-emptysocket-meta.blp");
                 end
-                window.childFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY + offsetY);
-                BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_CHECK", window.childFrame[i][j], smallIcon, smallIcon, checkOffsetX, checkOffsetY, nil);
-                BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX, iconOffsetY, rootPaperDoll..characterFrames.ICON[i]);
-                BIS:CreateTextFrame(characterFrames.NAME[i].."_"..j, window.childFrame[i][j], 180, smallIcon, textOffsetX, textOffsetY, textJustify);
+            end
+
+            if characterFrames.GEMS[i] then
+                for j = 1, 3, 1 do
+                    window.childFrame[i][j] = CreateFrame("Frame", "ItemFrame_"..characterFrames.NAME[i].."_"..j, window);
+                    window.childFrame[i][j]:SetSize(17, 17);
+                    if characterFrames.ICON_ALIGNMENT[i] == "RIGHT" then
+                        offsetX = iconSize - smallIcon;
+                        offsetY = - (smallIcon * (j - 1));
+                        iconOffsetX = smallIcon;
+                        iconOffsetY = 0;
+                    end
+                    window.childFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY + offsetY);
+                    BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j, window.childFrame[i][j], smallIcon, smallIcon, 0, 0, gemsIcons[j]);
+                    for k = 1, 6, 1 do
+                        BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_"..k, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX + k * smallIcon, iconOffsetY, gemsIcons[j]);
+                    end
+                end
+            else
+                for j = 1, 3, 1 do
+                    window.childFrame[i][j] = CreateFrame("Frame", "ItemFrame_"..characterFrames.NAME[i].."_"..j, window);
+                    window.childFrame[i][j]:SetSize(200, 17);
+                    if characterFrames.ICON_ALIGNMENT[i] == "RIGHT" then
+                        offsetX = iconSize;
+                        offsetY = - (smallIcon * (j - 1));
+                        checkOffsetX = 0;
+                        checkOffsetY = 0;
+                        iconOffsetX = smallIcon;
+                        iconOffsetY = 0;
+                        textOffsetX = smallIcon + smallIcon;
+                        textOffsetY = 0;
+                        textJustify = "LEFT";
+                    elseif characterFrames.ICON_ALIGNMENT[i] == "LEFT" then
+                        offsetX = -200;
+                        offsetY = - (smallIcon * (j - 1));
+                        checkOffsetX = 200 - smallIcon;
+                        checkOffsetY = 0;
+                        iconOffsetX = 200 - smallIcon - smallIcon;
+                        iconOffsetY = 0;
+                        textOffsetX = -smallIcon;
+                        textOffsetY = 0;
+                        textJustify = "RIGHT";
+                    else
+                        offsetX = smallIcon - (iconSize);
+                        offsetY = iconSize - (iconSize * (j - 1) / 3);
+                        checkOffsetX = 0;
+                        checkOffsetY = 0
+                        iconOffsetX = smallIcon;
+                        iconOffsetY = 0;
+                        textOffsetX = smallIcon + smallIcon;
+                        textOffsetY = 0;
+                        textJustify = "LEFT";
+                    end
+                    window.childFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY + offsetY);
+                    BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_CHECK", window.childFrame[i][j], smallIcon, smallIcon, checkOffsetX, checkOffsetY, nil);
+                    if characterFrames.RANGED[i] then
+                        BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX, iconOffsetY, rootPaperDoll..iconRanged[selectedClass]);
+                    else
+                        BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX, iconOffsetY, rootPaperDoll..characterFrames.ICON[i]);
+                    end
+                    BIS:CreateTextFrame(characterFrames.NAME[i].."_"..j, window.childFrame[i][j], 180, smallIcon, textOffsetX, textOffsetY, textJustify);
+                end
             end
 
         end
