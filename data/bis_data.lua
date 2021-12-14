@@ -25,7 +25,7 @@ table.insert(BIS_LINKS, {ClassId = 1, SpecId = 7, ItemId = 31369, Priority = 1, 
 table.insert(BIS_LINKS, {ClassId = 1, SpecId = 7, ItemId = 31370, Priority = 1, OffHand = false, Races = nil, SuffixId = 0 });
 table.insert(BIS_LINKS, {ClassId = 1, SpecId = 7, ItemId = 31398, Priority = 1, OffHand = false, Races = nil, SuffixId = 0 });
 table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 31368, Priority = 1, OffHand = false, Races = nil, SuffixId = 0 });
-table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 25026, Priority = 2, OffHand = false, Races = nil, SuffixId = 1527 });
+table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 25026, Priority = 2, OffHand = false, Races = nil, SuffixId = -34 });
 table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 25043, Priority = 1, OffHand = false, Races = nil, SuffixId = 1511 });
 table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 31935, Priority = 2, OffHand = false, Races = nil, SuffixId = 1508 });
 table.insert(BIS_LINKS, {ClassId = 2, SpecId = 4, ItemId = 28301, Priority = 3, OffHand = false, Races = nil, SuffixId = 0 });

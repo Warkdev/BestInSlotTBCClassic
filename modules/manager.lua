@@ -188,8 +188,11 @@ local function ResetUI()
 
     for key, value in pairs(characterFrames.NAME) do
         if characterFrames.RANGED[key] then
-            print(value)
-            _G["IconFrame_"..value.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+            if selectedClass == nil then
+                _G["IconFrame_"..value.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[1]);
+            else
+                _G["IconFrame_"..value.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+            end
         end
         if characterFrames.ENCHANT[key] then
             for i=1, 2, 1 do
@@ -208,8 +211,11 @@ local function ResetUI()
             else
                 _G["frame_"..value.."_"..i.."_CHECK_ICON"]:SetTexture(nil);
                 if characterFrames.RANGED[key] then
-                    print(rootPaperDoll..iconRanged[selectedClass])
-                    _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+                    if selectedClass == nil then
+                        _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[1]);
+                    else
+                        _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..iconRanged[selectedClass]);
+                    end
                 else
                     _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(rootPaperDoll..characterFrames.ICON[key]);
                 end
