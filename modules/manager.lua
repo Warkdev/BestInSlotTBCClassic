@@ -40,10 +40,9 @@ local iconRanged = {
     [3] = "UI-PaperDoll-Slot-Ranged.PNG",
     [4] = "UI-PaperDoll-Slot-Ranged.PNG",
     [5] = "UI-PaperDoll-Slot-Ranged.PNG",
-    [6] = "UI-PaperDoll-Slot-Ranged.PNG",
     [7] = "Ui-paperdoll-slot-relic.png",
     [8] = "UI-PaperDoll-Slot-Ranged.PNG",
-    [10] = "UI-PaperDoll-Slot-Ranged.PNG",
+    [9] = "UI-PaperDoll-Slot-Ranged.PNG",
     [11] = "Ui-paperdoll-slot-relic.png"
 }
 
