@@ -26,7 +26,7 @@ Please use the issue tracker to report any bug/missing items/unordered list.
 
 # Join the community #
 
-You can join the BestInSlot Community on Discord (here)[https://discord.gg/HDM67HsaSG] !
+You can join the BestInSlot Community on Discord [here](https://discord.gg/HDM67HsaSG) !
 
 # Credits #
 
