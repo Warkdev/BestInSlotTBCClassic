@@ -212,18 +212,20 @@ function BIS:OnTooltipSetItem(frame)
             -- We have a token currency.
             if itemInfo.CurrencyType == 2 then
                 details_token = ITEMS_LOOT[itemInfo.TokenId];
-                local count_token = table.getn(details_token.NPC);
-                if(count_token > 5) then
-                    count_token = 5
-                end
-                for idl=1, count_token, 1 do
-                    local npc_token = details_token.NPC[idl];
-                    if npc_token.Chance == -1 then
-                        BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." (Unknown)");
-                    else
-                        BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." ("..npc_token.Chance.."%)");
+                if details_token ~= nil then
+                    local count_token = table.getn(details_token.NPC);
+                    if(count_token > 5) then
+                        count_token = 5
                     end
-                    BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ 612/1024, 644/1024, 224/256, 256/256 }));
+                    for idl=1, count_token, 1 do
+                        local npc_token = details_token.NPC[idl];
+                        if npc_token.Chance == -1 then
+                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." (Unknown)");
+                        else
+                            BIS_TOOLTIP:AddLine(BIS:GetLocalizedMapName(npc_token.Zone).." - "..BIS:GetLocalizedNPCName(npc_token.Id).." ("..npc_token.Chance.."%)");
+                        end
+                        BIS_TOOLTIP:AddTexture("Interface\\LootFrame\\LootToast", unpack({ 612/1024, 644/1024, 224/256, 256/256 }));
+                    end
                 end
             end
         end
