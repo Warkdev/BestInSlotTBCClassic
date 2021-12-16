@@ -6,17 +6,17 @@ BestInSlot - TBC Classic is an add-on providing BestInSlot information in-game a
 
 Supported lists are:
 
-| Class  | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Phase 5 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Warrior  | No  |  No  |  No  |  No  | No  |
-| Paladin  | No  |  No  |  No  |  No | No |
-| Hunter  | No  |  No  |  No  |  No  | No  |
-| Rogue  | No  |  No  |  No  |  No  | No  |
-| Priest  | No  |  No  |  No  |  No  | No  |
-| Shaman  | No  |  No  |  No  |  No  | No  |
-| Mage  | No  |  No  |  No  |  No  | No  |
-| Warlock  | No  |  No  |  No  |  No  | No  |
-| Druid  | No  |  No  |  No  |  No  | No  |
+| Class    | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Phase 5 |
+| :---     | :---:   | :---:   | :---:   | :---:   | :---:   |
+| Warrior  | Yes     |  Yes    |  No     |  No     | No      |
+| Paladin  | Yes     |  Yes    |  No     |  No     | No      |
+| Hunter   | Yes     |  Yes    |  No     |  No     | No      |
+| Rogue    | Yes     |  Yes    |  No     |  No     | No      |
+| Priest   | Yes     |  Yes    |  No     |  No     | No      |
+| Shaman   | Yes     |  Yes    |  No     |  No     | No      |
+| Mage     | Yes     |  Yes    |  No     |  No     | No      |
+| Warlock  | Yes     |  Yes    |  No     |  No     | No      |
+| Druid    | Yes     |  Yes    |  No     |  No     | No      |
 
 You can find this add-on on curse: https://www.curseforge.com/wow/addons/best-in-slot-tbc-classic/
 
