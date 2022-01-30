@@ -1,9 +1,9 @@
 ## Author: Mondeny @ Auberdine-EU
-## X-Min-Interface: 20502
-## Interface: 20502
+## X-Min-Interface: 20503
+## Interface: 20503
 ## Title: Best In Slot TBC Classic
 ## Notes: Keep track of your Best in Slot list!
-## Version: 2.0.0
+## Version: 2.0.3
 ## SavedVariables: BestInSlotTBCClassicGlobalDB
 ## SavedVariablesPerCharacter: BestInSlotTBCClassicDB
 

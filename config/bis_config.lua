@@ -1,12 +1,12 @@
 -- Version Info.
-VERSION = "2.0.0";
+VERSION = "2.0.6";
 
 -- Default Icon Size.
 bis_defaultIconSize = 16;
 
 -- Default Manager Data.
-bis_currentPhase = "Phase 2";
-bis_currentPhaseId = 2;
+bis_currentPhase = "Phase 3";
+bis_currentPhaseId = 3;
 
 -- Item to load on start.
 

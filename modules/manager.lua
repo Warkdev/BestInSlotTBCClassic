@@ -137,7 +137,7 @@ BIS_dataSpecs = {
                     ["SPEC_ICONS"] = { 132276, 132117, 132115, 136041, 136036 },
                     ["VALUE"] = { 1, 2, 3, 4, 5 },
                     ["ICON"] = { 134297 },
-                    ["MAGIC_RESISTANCE"] = { { 1, nil, 6, nil, 7, nil }, { 2, nil, 6, nil, 7, nil }, { 3, nil, nil, nil, nil, nil }, { 4, nil, nil, nil, nil, nil }, { 5, nil, nil, nil, nil, nil } },
+                    ["MAGIC_RESISTANCE"] = { { 1, 8, 6, nil, 7, nil }, { 2, 8, 6, nil, 7, nil }, { 3, nil, nil, nil, nil, nil }, { 4, nil, nil, nil, nil, nil }, { 5, nil, nil, nil, nil, nil } },
                     ["WEAPON_ICONS"] = { { nil, 9449 }, { nil, 9449 }, { nil, 9449 }, { 19360, 19356 }, { 19360, 19356 } }
                 }
 };
