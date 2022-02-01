@@ -539,7 +539,7 @@ function BIS:OnGameTooltipSetItem(frame)
 
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
     BIS_LibExtraTip:AddLine(frame,"# BIS-TBC-Classic:",r,g,b,true);
-    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3" ,r,g,b, r,g,b, true);
+    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3 > P4 > P5" ,r,g,b, r,g,b, true);
     --BIS_LibExtraTip:AddDoubleLine(frame,"Class - Races - Spec", "P4 > P5" ,r,g,b, r,g,b, true);
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
 
@@ -590,7 +590,7 @@ function BIS:OnGameTooltipSetItem(frame)
         target = target.."- "..BIS_dataSpecs[value.classId].SPEC[value.specId];
 
         if phase > 1 then
-            for i = bis_currentPhaseId + 1, phase, 1 do
+            for i = 2, phase, 1 do
                 text = text.."N/A > ";
             end
         end
