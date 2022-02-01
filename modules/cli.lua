@@ -41,7 +41,7 @@ function BIS:HandleLogLevel(args)
 end
 
 local function ShowVersion(args)
-    BIS:logmsg("BestInSlot - Classic v"..VERSION, LVL_INFO);
+    BIS:logmsg("BestInSlot - TBC Classic v"..VERSION, LVL_INFO);
 end
 
 local function HandleTooltip(args)

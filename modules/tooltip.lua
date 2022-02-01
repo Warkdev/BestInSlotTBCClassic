@@ -524,7 +524,11 @@ function BIS:OnGameTooltipSetItem(frame)
         pvp = 1;
     end
 
-    if BIS_TOOLTIP_RANKING[itemId] == nil or BIS_TOOLTIP_RANKING[itemId][suffixId] == nil or BIS_TOOLTIP_RANKING[itemId][suffixId][faction][raid][worldboss][pvp][14] == nil then
+    if BIS_ITEMS[itemId] == nil then
+        return;
+    end
+
+    if BIS_TOOLTIP_RANKING[itemId] == nil then
         return;
     end
 
@@ -539,7 +543,7 @@ function BIS:OnGameTooltipSetItem(frame)
     --BIS_LibExtraTip:AddDoubleLine(frame,"Class - Races - Spec", "P4 > P5" ,r,g,b, r,g,b, true);
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
 
-    for key, value in pairs(BIS_TOOLTIP_RANKING[itemId][suffixId][faction][raid][worldboss][pvp]) do
+    for key, value in pairs(BIS_TOOLTIP_RANKING[itemId]) do
         local color = RAID_CLASS_COLORS[C_CreatureInfo.GetClassInfo(value.classId).classFile];
         local text = "";
         local add = false;

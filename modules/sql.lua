@@ -204,7 +204,7 @@ function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, t
     end
 
     -- Checking if you have an item equipped for your class/spec only.
-    if not match and BestInSlotTBCClassicDB.filter.soulboundBis and IsEquippedItem(value.ItemId) and value.SpecId == specSearch and value.ClassId == classSearch and BIS_ITEMS[value.ItemId].Phase <= phase and BIS:containsValue(value.Races, race) and BIS:containsValue(BIS_ITEMS[value.ItemId].Faction, faction) and (BIS_ITEMS[value.ItemId].Slot ~= 16 or BIS_ITEMS[value.ItemId].TwoHands == twoHands) then
+    if not match and BIS_ITEMS[value.ItemId] ~= nil and BestInSlotTBCClassicDB.filter.soulboundBis and IsEquippedItem(value.ItemId) and value.SpecId == specSearch and value.ClassId == classSearch and BIS_ITEMS[value.ItemId].Phase <= phase and BIS:containsValue(value.Races, race) and BIS:containsValue(BIS_ITEMS[value.ItemId].Faction, faction) and (BIS_ITEMS[value.ItemId].Slot ~= 16 or BIS_ITEMS[value.ItemId].TwoHands == twoHands) then
       match = true;
     end
 
