@@ -539,7 +539,7 @@ function BIS:OnGameTooltipSetItem(frame)
 
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
     BIS_LibExtraTip:AddLine(frame,"# BIS-TBC-Classic:",r,g,b,true);
-    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3 > P4 > P5" ,r,g,b, r,g,b, true);
+    BIS_LibExtraTip:AddDoubleLine(frame,"Class - Spec", "P1 > P2 > P3" ,r,g,b, r,g,b, true);
     --BIS_LibExtraTip:AddDoubleLine(frame,"Class - Races - Spec", "P4 > P5" ,r,g,b, r,g,b, true);
     BIS_LibExtraTip:AddLine(frame," ",r,g,b,true);
 
