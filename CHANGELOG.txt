@@ -1,4 +1,9 @@
-# 2.0.0 (12-12-2021)
+# 1.0.1 (02-02-2021)
+- Fixing a bug where P3 Shaman Elem & P3 Shaman Heal were reversed. - Thanks Zautix
+- Fixing a bug where Shaman Tier items were not proposed in the BIS lists. - Thanks Zautix
+- Fixing a bug where Priest Shadow didn't have any weapon available. - Thanks Zautix
+
+# 1.0.0 (12-12-2021)
 - Adding BIS sets for all class for TBC release
 
 # 0.0.1 (02-12-2021)
