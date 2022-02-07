@@ -112,8 +112,8 @@ function BIS:SearchBisEnchant(class, phase, spec, invSlot, raid, twoHands)
     return {};
   end
 
-  --return result;
-  return {};
+  return result;
+  --return {};
 end
 
 function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, twoHands, raid, worldBoss, pvp, itemId)

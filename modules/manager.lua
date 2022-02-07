@@ -28,7 +28,7 @@ local characterFrames = {
     ["ICON_ALIGNMENT"] = {
         "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT"
     },
-    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, false, true, true, false, false, false, false, true, true, true, false, false },
+    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, true, true, true, true, false, false, false, true, true, true, false, false },
     ["GEMS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
     ["META"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
     ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false }
