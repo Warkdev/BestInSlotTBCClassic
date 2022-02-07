@@ -105,11 +105,11 @@ function BIS:OnTooltipSetSpell(frame)
     local name, EnchantId = frame:GetSpell();
 
     BIS_TOOLTIP:AddLine("|T"..PROFESSIONS["Enchanting"]..":"..bis_defaultIconSize.."|t "..PROFESSIONS_NAME["Enchanting"].." ("..BIS_ENCHANT[EnchantId].Level..")");
-    --if BIS_ENCHANT[EnchantId].Recipe == nil or BIS_ENCHANT[EnchantId].Recipe == 0 then
-    --    BIS_TOOLTIP:AddLine("|T134327:"..bis_defaultIconSize.."|t "..MINIMAP_TRACKING_TRAINER_PROFESSION);
-    --else
-    --    enrichRecipeSource(BIS_ENCHANT[EnchantId].Recipe, "134327");
-    --end
+    if BIS_ENCHANT[EnchantId].Recipe == nil or BIS_ENCHANT[EnchantId].Recipe == 0 then
+        BIS_TOOLTIP:AddLine("|T134327:"..bis_defaultIconSize.."|t "..MINIMAP_TRACKING_TRAINER_PROFESSION);
+    else
+        enrichRecipeSource(BIS_ENCHANT[EnchantId].Recipe, "134327");
+    end
 
     BIS_TOOLTIP:Show();
 end
