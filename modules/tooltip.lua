@@ -339,15 +339,15 @@ function BIS:OnTooltipSetItem(frame)
         BIS_TOOLTIP:AddLine("|T"..GetItemIcon(11952)..":"..bis_defaultIconSize.."|t 1 "..GetItemInfo(11952).." - "..BIS:GetLocalizedMapName(329).." - "..BIS:GetLocalizedNPCName(8545).." (25%)");
     elseif ItemId == 22635 then
         -- Savage Guard
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9208).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9208).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS["COMPLETED"]));
         BIS_TOOLTIP:AddLine("  |T"..GetItemIcon(18330)..":"..bis_defaultIconSize.."|t 1 "..GetItemInfo(18330).." - "..BIS:GetLocalizedMapName(429));
 
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9209).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9209).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS["COMPLETED"]));
         BIS_TOOLTIP:AddLine(" |T"..GetItemIcon(18329)..":"..bis_defaultIconSize.."|t 1 "..GetItemInfo(18329).." - "..BIS:GetLocalizedMapName(429));
 
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9210).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(9210).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS["COMPLETED"]));
         BIS_TOOLTIP:AddLine(" |T"..GetItemIcon(18331)..":"..bis_defaultIconSize.."|t 1 "..GetItemInfo(18331).." - "..BIS:GetLocalizedMapName(429));
     elseif ItemId == 22636 or ItemId == 22638 then
@@ -408,58 +408,58 @@ function BIS:OnTooltipSetItem(frame)
         BIS_TOOLTIP:AddLine("  |T"..GetItemIcon(19701)..":"..bis_defaultIconSize.."|t |T"..GetItemIcon(19702)..":"..bis_defaultIconSize.."|t |T"..GetItemIcon(19703)..":"..bis_defaultIconSize.."|t - "..GetItemInfo(19701)..", "..GetItemInfo(19702)..", "..GetItemInfo(19703));
     elseif ItemId == 19783 then
         -- Syncretist's Sigil
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8185).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8185).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19788 then
         -- Hoodoo Hex
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8190).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8190).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19787 then
         -- Presence of Sight
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8189).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8189).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19789 then
         -- Prophetic Aura
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8191).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8191).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19786 then
         -- Vodouisant's Vigilant Embrace
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8188).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8188).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19790 then
         -- Animist's Caress
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8192).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8192).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19782 then
         -- Presence of Might
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8184).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8184).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19784 then
         -- Death's Embrace
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8186).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8186).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 19785 then
         -- Falcon's Call
-        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8187).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(309));
+        BIS_TOOLTIP:AddLine(BIS:GetLocalizedQuestName(8187).." - "..BIS:GetLocalizedNPCName(15042).." - "..BIS:GetLocalizedMapName(1977));
         BIS_TOOLTIP:AddTexture("Interface\\QuestFrame\\QuestTypeIcons", unpack(QUEST_TAG_TCOORDS[89]));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
-        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(309).." - "..BIS:GetLocalizedObjectName(180228));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(22637)..":"..bis_defaultIconSize.."|t "..GetItemInfo(22637).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedNPCName(11380)..", "..BIS:GetLocalizedNPCName(11382));
+        BIS_TOOLTIP:AddLine("|T"..GetItemIcon(19815)..":"..bis_defaultIconSize.."|t "..GetItemInfo(19815).." - "..BIS:GetLocalizedMapName(1977).." - "..BIS:GetLocalizedObjectName(180228));
     elseif ItemId == 32420 then
         -- Chaotic Skyfire Diamond
 
