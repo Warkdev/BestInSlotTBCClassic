@@ -120,7 +120,7 @@ function BIS:LoadPlayerInfo()
         BIS:logmsg(name..": "..pointsSpent..", "..fileName, LVL_DEBUG);
     end
 
-    if class == "DRUID" and spec == "DruidFeralCombat" then
+    if class == "DRUID" and spec == "DruidFeralTank" then
         -- Need to find out whether it's a Feral Tank or DPS.
         -- This is done by checking the talent thick skin.
         local talentName, iconTexture, tier, column, rank, maxRank, isExceptional, available = GetTalentInfo(2, 5);
