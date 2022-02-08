@@ -4,7 +4,7 @@ LVL_WARN = 2;
 LVL_INFO = 3;
 LVL_DEBUG = 4;
 
-local prefix = "BISClassic";
+local prefix = "BISTBCClassic";
 logseverity = { "ERROR", "WARN", "INFO", "DEBUG" };
 local logsettings;
 
