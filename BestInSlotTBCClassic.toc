@@ -3,7 +3,7 @@
 ## Interface: 20503
 ## Title: Best In Slot TBC Classic
 ## Notes: Keep track of your Best in Slot list!
-## Version: 1.0.1
+## Version: 1.0.2
 ## SavedVariables: BestInSlotTBCClassicGlobalDB
 ## SavedVariablesPerCharacter: BestInSlotTBCClassicDB
 

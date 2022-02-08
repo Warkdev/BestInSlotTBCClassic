@@ -1,3 +1,7 @@
+# 1.0.2 (09-02-2021)
+- Token tooltip will now display a condensed view of the BIS Ranking for all classes
+- Adding BIS enchants according to wowhead incl. sources
+
 # 1.0.1 (02-02-2021)
 - Fixing a bug where P3 Shaman Elem & P3 Shaman Heal were reversed. - Thanks Zautix
 - Fixing a bug where Shaman Tier items were not proposed in the BIS lists. - Thanks Zautix
