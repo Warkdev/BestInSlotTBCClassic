@@ -51,3 +51,13 @@ BIS_INVTYPE_INVSLOT = {
     ["INVTYPE_LEGS"] = 7,
     ["INVTYPE_HOLDABLE"] = 17
 };
+
+CONSO_SLOT_IDX = {
+    [1] = "FLASK_OR_ELIXIR",
+    [2] = "FOOD",
+    [3] = "WEAPON",
+    [4] = "POTION",
+    [5] = "RUNE_OR_RECOVERY",
+    [6] = "SCROLL",
+    [7] = "MISC"
+}

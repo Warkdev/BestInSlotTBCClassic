@@ -15,23 +15,25 @@ local iconAlliance = 132486;
 local iconHorde = 132485;
 
 local characterFrames = {
-    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gems", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Bags" },
-    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 9 },
+    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gems", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Ammos", "Consumables" },
+    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 9, 10 },
     ["ICON"] = {
         "UI-PaperDoll-Slot-Head.PNG", "UI-PaperDoll-Slot-Neck.PNG", "UI-PaperDoll-Slot-Shoulder.PNG", "UI-PaperDoll-Slot-REar.PNG", "UI-PaperDoll-Slot-Chest.PNG", "UI-PaperDoll-Slot-Shirt.PNG", "UI-PaperDoll-Slot-Tabard.PNG",
         "UI-PaperDoll-Slot-Wrists.PNG", "UI-backpack-emptyslot.PNG", "UI-PaperDoll-Slot-Hands.PNG", "UI-PaperDoll-Slot-Waist.PNG", "UI-PaperDoll-Slot-Legs.PNG", "UI-PaperDoll-Slot-Feet.PNG", "UI-PaperDoll-Slot-Finger.PNG",
-        "UI-PaperDoll-Slot-Finger.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-MainHand.PNG", "UI-PaperDoll-Slot-SecondaryHand.PNG", "UI-PaperDoll-Slot-Ranged.PNG", "UI-PaperDoll-Slot-Bag.PNG"
+        "UI-PaperDoll-Slot-Finger.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-MainHand.PNG", "UI-PaperDoll-Slot-SecondaryHand.PNG", "UI-PaperDoll-Slot-Ranged.PNG", "UI-PaperDoll-Slot-ammo.PNG",
+        "UI-PaperDoll-Slot-Bag.PNG"
     },
     ["FRAME_ALIGNMENT"] = {
-        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM", "RIGHT"
+        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM", "RIGHT", "LEFT"
     },
     ["ICON_ALIGNMENT"] = {
-        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT"
+        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT", "RIGHT"
     },
-    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, true, true, true, true, false, false, false, true, true, true, false, false },
-    ["GEMS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
-    ["META"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
-    ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false }
+    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, true, true, true, true, false, false, false, true, true, true, false, false, false },
+    ["GEMS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["META"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false },
+    ["CONSUMABLES"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true }
 };
 
 local iconRanged = {
@@ -207,6 +209,13 @@ local function ResetUI()
                 for j=1, 6, 1 do
                     _G["frame_"..value.."_"..i.."_"..j.."_ICON"]:SetTexture(gemsIcons[i]);
                 end
+            elseif characterFrames.CONSUMABLES[key] then
+                -- Special handling for consumables slot
+                for j=1, 7, 1 do
+                    _G["frame_"..value.."_"..i.."_"..j.."_ICON"]:SetTexture(rootPaperDoll..characterFrames.ICON[key]);
+                    _G["frame_"..value.."_"..i.."_"..j]:SetScript("OnEnter", nil);
+                    _G["frame_"..value.."_"..i.."_"..j]:SetScript("OnLeave", nil);
+                end
             else
                 _G["frame_"..value.."_"..i.."_CHECK_ICON"]:SetTexture(nil);
                 if characterFrames.RANGED[key] then
@@ -369,16 +378,20 @@ local function Update()
         temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, selectedSpec, nil, twoHands, raid, worldBoss, pvp, nil);
         BIS:logmsg("Searching for BIS enchants with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, selectedSpec, nil, raid, twoHands);
+        BIS:logmsg("Searching for Consumables with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
+        temp_conso = BIS:SearchConsumables(selectedClass, selectedPhase, selectedSpec);
     else
         BIS:logmsg("Searching for BIS items with the following settings Race Idx ("..selectedRace.."), Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, twoHands, raid, worldBoss, pvp, nil);
         BIS:logmsg("Searching for BIS enchants with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, raid, twoHands);
+        BIS:logmsg("Searching for Consumables with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
+        temp_conso = BIS:SearchConsumables(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]);
     end
 
 
 
-    if table.getn(temp) == 0 and table.getn(temp_enchant) == 0 then
+    if table.getn(temp) == 0 and table.getn(temp_enchant) == 0 and table.getn(temp_conso) then
         -- Empty table.
         return;
     end
@@ -386,6 +399,43 @@ local function Update()
     local minIndex, maxIndex;
     local temp_slot;
     local item;
+
+    for i = 1, table.getn(CONSO_SLOT_IDX), 1 do
+        if temp_conso[i] ~= nil then
+            for idx, value in pairs(temp_conso[i]) do
+                if idx > 3 then
+                    break;
+                end
+
+                item = Item:CreateFromItemID(value.ItemId);
+
+                _G["frame_Consumables_"..idx.."_"..value.Slot].index = idx;
+                _G["frame_Consumables_"..idx.."_"..value.Slot].slot = value.Slot;
+                item:ContinueOnItemLoad(function()
+                    -- Item has been answered from the server.
+                    local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+                    itemEquipLoc, itemIcon, itemSellPrice, itemClassID, itemSubClassID, bindType, expacID, itemSetID,
+                    isCraftingReagent = GetItemInfo("item:"..value.ItemId..":0:0:0:0:0:0");
+
+                    _G["frame_Consumables_"..idx.."_"..value.Slot.."_ICON"]:SetTexture(itemIcon);
+                    _G["frame_Consumables_"..idx.."_"..value.Slot]:SetScript("OnMouseDown", function(self)
+                        if itemName ~= nil then
+                            SetItemRef(itemLink, itemLink, "LeftButton");
+                        end
+                    end)
+                    _G["frame_Consumables_"..idx.."_"..value.Slot]:SetScript("OnEnter", function(self)
+                        BIS_TOOLTIP:SetOwner(_G["frame_Consumables_"..self.index.."_"..self.slot]);
+                        BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Consumables_"..self.index.."_"..self.slot], "TOPRIGHT", 220, -13);
+
+                        BIS_TOOLTIP:SetHyperlink(itemLink);
+                    end);
+                    _G["frame_Consumables_"..idx.."_"..value.Slot]:SetScript("OnLeave", function(self)
+                        BIS_TOOLTIP:Hide();
+                    end);
+                end);
+            end
+        end
+    end
 
     for i = 1, table.getn(INVSLOT_IDX), 1 do
         -- First, we set the enchantments for the given slot.
@@ -789,6 +839,22 @@ function BIS:ShowManager()
                     BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j, window.childFrame[i][j], smallIcon, smallIcon, 0, 0, gemsIcons[j]);
                     for k = 1, 6, 1 do
                         BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_"..k, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX + k * smallIcon, iconOffsetY, gemsIcons[j]);
+                    end
+                end
+            elseif characterFrames.CONSUMABLES[i] then
+                for j = 1, 3, 1 do
+                    window.childFrame[i][j] = CreateFrame("Frame", "ItemFrame_"..characterFrames.NAME[i].."_"..j, window);
+                    window.childFrame[i][j]:SetSize(17, 17);
+                    if characterFrames.ICON_ALIGNMENT[i] == "RIGHT" then
+                        offsetX = iconSize - smallIcon;
+                        offsetY = - (smallIcon * (j - 1));
+                        iconOffsetX = smallIcon;
+                        iconOffsetY = 0;
+                    end
+                    window.childFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY + offsetY);
+                    for k = 1, 7, 1 do
+                        print("frame_"..characterFrames.NAME[i].."_"..j.."_"..k);
+                        BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_"..k, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX + k * smallIcon, iconOffsetY, rootPaperDoll..characterFrames.ICON[i]);
                     end
                 end
             else

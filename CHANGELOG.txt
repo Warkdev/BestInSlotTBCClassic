@@ -1,3 +1,6 @@
+# 1.0.3 (xx-02-2021)
+- Adding consumables to the main window
+
 # 1.0.2 (09-02-2021)
 - Token tooltip will now display a condensed view of the BIS Ranking for all classes
 - Adding BIS enchants according to wowhead incl. sources

@@ -113,7 +113,6 @@ function BIS:SearchBisEnchant(class, phase, spec, invSlot, raid, twoHands)
   end
 
   return result;
-  --return {};
 end
 
 function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, twoHands, raid, worldBoss, pvp, itemId)
@@ -241,6 +240,57 @@ function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, t
             end
           end
         end
+      end
+    end
+  end
+
+  -- Now, trimming table to remove gaps.
+  for slot, value in pairs(temp) do
+    for priority = 1, 100, 1 do
+      if temp[slot][priority] ~= nil then
+        table.insert(result[slot], temp[slot][priority]);
+      end
+    end
+  end
+
+  if empty then
+    return {};
+  end
+
+  return result;
+end
+
+function BIS:SearchConsumables(class, phase, spec)
+  -- Temporary table with matching records.
+  local temp = {};
+  local result = {};
+  local empty = true;
+  local slot;
+
+  for i = 1, table.getn(CONSO_SLOT_IDX), 1 do
+    temp[i] = {};
+    result[i] = {};
+  end
+
+  local match;
+
+  for k, value in pairs(BIS_CONSO_LINKS) do
+    match = true;
+
+    if match and (value.ClassId ~= class or value.SpecId ~= spec) then
+      --BIS:logmsg("One of the mandatory argument does not match (ClassId or SpecId)", LVL_DEBUG);
+      match = false;
+    end
+
+    if match and BIS_ITEMS[value.ItemId] ~= nil and (BIS_ITEMS[value.ItemId].Phase > phase) then
+      --BIS:logmsg("One of the mandatory argument does not match (Phase)", LVL_DEBUG);
+      match = false;
+    end
+
+    if match then
+      empty = false;
+      if(BIS_ITEMS[value.ItemId] ~= nil) then
+        table.insert(temp[value.Slot], value.Priority, value);
       end
     end
   end
