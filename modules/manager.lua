@@ -35,7 +35,8 @@ local characterFrames = {
     ["META"] = { false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
     ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true },
     ["AMMOS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
-    ["CONSUMABLES"] = { false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false }
+    ["CONSUMABLES"] = { false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["SHOW_RANGED"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, true, false, false, false },
 };
 
 local iconRanged = {
@@ -233,6 +234,23 @@ local function ResetUI()
                 _G["ItemFrame_"..value.."_"..i]:SetScript("OnEnter", nil);
                 _G["ItemFrame_"..value.."_"..i]:SetScript("OnLeave", nil);
             end
+            -- Handling specifically display of some icons for hunters
+            if selectedClass == 3 and characterFrames.SHOW_RANGED[key] then
+                _G["frame_"..value.."_"..i.."_ICON"]:Show();
+                _G["frame_"..value.."_"..i.."_CHECK_ICON"]:Show();
+                _G["frame"..value.."_"..i.."_TEXT"]:Show();
+                _G["ItemFrame_"..value.."_"..i]:Show();
+            elseif characterFrames.SHOW_RANGED[key] then
+                _G["frame_"..value.."_"..i.."_ICON"]:Hide();
+                _G["frame_"..value.."_"..i.."_CHECK_ICON"]:Hide();
+                _G["frame"..value.."_"..i.."_TEXT"]:Hide();
+                _G["ItemFrame_"..value.."_"..i]:Hide();
+            end
+        end
+        if selectedClass == 3 and characterFrames.SHOW_RANGED[key] then
+            _G["IconFrame_"..characterFrames.NAME[key]]:Show();
+        elseif characterFrames.SHOW_RANGED[key] then
+            _G["IconFrame_"..characterFrames.NAME[key]]:Hide();
         end
     end
 
@@ -505,8 +523,6 @@ local function Update()
                 if idx > minIndex and idx < maxIndex then
                     item = Item:CreateFromItemID(value.ItemId);
 
-                    print(i);
-                    print(idx - minIndex);
                     _G["ItemFrame_"..INVSLOT_IDX[i].."s_"..(idx - minIndex)].index = idx - minIndex;
                     item:ContinueOnItemLoad(function()
                         if INVSLOT_IDX[i] == "OffTrinket" or INVSLOT_IDX[i] == "OffRing" then
