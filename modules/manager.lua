@@ -15,25 +15,27 @@ local iconAlliance = 132486;
 local iconHorde = 132485;
 
 local characterFrames = {
-    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Shirts", "Tabards", "Wrists", "Gems", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "MainHands", "OffHands", "Rangeds", "Ammos", "Consumables" },
-    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 9, 10 },
+    ["NAME"] = { "Heads", "Necks", "Shoulders", "Backs", "Chests", "Wrists", "Gems", "Consumables", "Ammos", "Gloves", "Belts", "Legs", "Boots", "MainRings", "OffRings", "MainTrinkets", "OffTrinkets", "Bags", "MainHands", "OffHands", "Rangeds" },
+    ["INDEX"] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3 },
     ["ICON"] = {
-        "UI-PaperDoll-Slot-Head.PNG", "UI-PaperDoll-Slot-Neck.PNG", "UI-PaperDoll-Slot-Shoulder.PNG", "UI-PaperDoll-Slot-REar.PNG", "UI-PaperDoll-Slot-Chest.PNG", "UI-PaperDoll-Slot-Shirt.PNG", "UI-PaperDoll-Slot-Tabard.PNG",
-        "UI-PaperDoll-Slot-Wrists.PNG", "UI-backpack-emptyslot.PNG", "UI-PaperDoll-Slot-Hands.PNG", "UI-PaperDoll-Slot-Waist.PNG", "UI-PaperDoll-Slot-Legs.PNG", "UI-PaperDoll-Slot-Feet.PNG", "UI-PaperDoll-Slot-Finger.PNG",
-        "UI-PaperDoll-Slot-Finger.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-MainHand.PNG", "UI-PaperDoll-Slot-SecondaryHand.PNG", "UI-PaperDoll-Slot-Ranged.PNG", "UI-PaperDoll-Slot-ammo.PNG",
-        "UI-PaperDoll-Slot-Bag.PNG"
+        "UI-PaperDoll-Slot-Head.PNG", "UI-PaperDoll-Slot-Neck.PNG", "UI-PaperDoll-Slot-Shoulder.PNG", "UI-PaperDoll-Slot-REar.PNG", "UI-PaperDoll-Slot-Chest.PNG",
+        "UI-PaperDoll-Slot-Wrists.PNG", "UI-backpack-emptyslot.PNG", "UI-PaperDoll-Slot-Bag.PNG", "UI-PaperDoll-Slot-ammo.PNG", "UI-PaperDoll-Slot-Hands.PNG",
+        "UI-PaperDoll-Slot-Waist.PNG", "UI-PaperDoll-Slot-Legs.PNG", "UI-PaperDoll-Slot-Feet.PNG", "UI-PaperDoll-Slot-Finger.PNG",
+        "UI-PaperDoll-Slot-Finger.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Trinket.PNG", "UI-PaperDoll-Slot-Bag.PNG",
+        "UI-PaperDoll-Slot-MainHand.PNG", "UI-PaperDoll-Slot-SecondaryHand.PNG", "UI-PaperDoll-Slot-Ranged.PNG"
     },
     ["FRAME_ALIGNMENT"] = {
-        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM", "RIGHT", "LEFT"
+        "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "BOTTOM", "BOTTOM", "BOTTOM"
     },
     ["ICON_ALIGNMENT"] = {
-        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT", "LEFT", "RIGHT"
+        "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "RIGHT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "LEFT", "TOP", "RIGHT"
     },
-    ["ENCHANT"] = { true, false, true, true, true, false, false, true, false, true, true, true, true, true, false, false, false, true, true, true, false, false, false },
-    ["GEMS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false },
-    ["META"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false },
-    ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false },
-    ["CONSUMABLES"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true }
+    ["ENCHANT"] = { true, false, true, true, true, true, false, false, false, true, false, true, true, true, false, true, false, false, true, true, true },
+    ["GEMS"] = { false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["META"] = { false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["RANGED"] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true },
+    ["AMMOS"] = { false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
+    ["CONSUMABLES"] = { false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false }
 };
 
 local iconRanged = {
@@ -503,6 +505,8 @@ local function Update()
                 if idx > minIndex and idx < maxIndex then
                     item = Item:CreateFromItemID(value.ItemId);
 
+                    print(i);
+                    print(idx - minIndex);
                     _G["ItemFrame_"..INVSLOT_IDX[i].."s_"..(idx - minIndex)].index = idx - minIndex;
                     item:ContinueOnItemLoad(function()
                         if INVSLOT_IDX[i] == "OffTrinket" or INVSLOT_IDX[i] == "OffRing" then
@@ -853,7 +857,6 @@ function BIS:ShowManager()
                     end
                     window.childFrame[i][j]:SetPoint("TOPLEFT", window, "TOPLEFT", startX + offsetX, startY + offsetY);
                     for k = 1, 7, 1 do
-                        print("frame_"..characterFrames.NAME[i].."_"..j.."_"..k);
                         BIS:CreateIconFrame("frame_"..characterFrames.NAME[i].."_"..j.."_"..k, window.childFrame[i][j], smallIcon, smallIcon, iconOffsetX + k * smallIcon, iconOffsetY, rootPaperDoll..characterFrames.ICON[i]);
                     end
                 end
