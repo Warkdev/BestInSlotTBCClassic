@@ -174,6 +174,8 @@ table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 34007, Pri
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 20023, Priority = 3, Slot = 8 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 42620, Priority = 1, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 23800, Priority = 2, Slot = 16 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 42620, Priority = 1, Slot = 17 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 23800, Priority = 2, Slot = 17 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 27977, Priority = 3, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 30260, Priority = 1, Slot = 18 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 1, EnchantId = 30252, Priority = 2, Slot = 18 });
@@ -193,6 +195,8 @@ table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 34007, Pri
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 20023, Priority = 3, Slot = 8 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 42620, Priority = 1, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 23800, Priority = 2, Slot = 16 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 42620, Priority = 1, Slot = 17 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 23800, Priority = 2, Slot = 17 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 27977, Priority = 3, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 30260, Priority = 1, Slot = 18 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 2, EnchantId = 30252, Priority = 2, Slot = 18 });
@@ -212,6 +216,8 @@ table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 34007, Pri
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 20023, Priority = 3, Slot = 8 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 42620, Priority = 1, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 23800, Priority = 2, Slot = 16 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 42620, Priority = 1, Slot = 17 });
+table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 23800, Priority = 2, Slot = 17 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 27977, Priority = 3, Slot = 16 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 30260, Priority = 1, Slot = 18 });
 table.insert(BIS_ENCHANT_LINKS, {ClassId = 3, SpecId = 3, EnchantId = 30252, Priority = 2, Slot = 18 });
