@@ -1,5 +1,5 @@
 INVSLOT_IDX = {
-    [0] = "Ammo",
+    [24] = "Ammo",
     [1] = "Head",
     [2] = "Neck",
     [3] = "Shoulder",

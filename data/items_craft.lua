@@ -172,6 +172,7 @@ ITEMS_CRAFT[32756] = { CraftLabel = "Engineering", CraftLevel = "375" };
 ITEMS_CRAFT[32774] = { CraftLabel = "Jewelcrafting", CraftLevel = "330" };
 ITEMS_CRAFT[33122] = { CraftLabel = "Leatherworking", CraftLevel = "360" };
 ITEMS_CRAFT[33173] = { CraftLabel = "Blacksmithing", CraftLevel = "365" };
+ITEMS_CRAFT[33803] = { CraftLabel = "Engineering", CraftLevel = "335" };
 ITEMS_CRAFT[34105] = { CraftLabel = "Leatherworking", CraftLevel = "350" };
 ITEMS_CRAFT[34106] = { CraftLabel = "Leatherworking", CraftLevel = "350" };
 ITEMS_CRAFT[34330] = { CraftLabel = "Leatherworking", CraftLevel = "350" };
