@@ -1,8 +1,8 @@
-# 1.0.3 (xx-02-2021)
+# 1.0.3 (11-02-2021)
 - Adding consumables to the main window
-- Adding arrows & bullets bags for hunters
+- Adding arrows bags for hunters
 - Fixing enchants bis for hunters
-- Adding arrows & bullets BIS for hunters
+- Adding arrows BIS for hunters
 
 # 1.0.2 (09-02-2021)
 - Token tooltip will now display a condensed view of the BIS Ranking for all classes
