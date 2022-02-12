@@ -1,3 +1,8 @@
+# 1.0.4 (xx-02-2021)
+- TODO: FIX Wrong raid items for better filtering
+- TODO: FIX Wrong raid enchants for better filtering
+- Fix Shaman Enhancements MH/OH assignments and ranking
+
 # 1.0.3 (11-02-2021)
 - Adding consumables to the main window
 - Adding arrows bags for hunters
