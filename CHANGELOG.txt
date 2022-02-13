@@ -2,6 +2,7 @@
 - FIX Wrong raid items for better filtering
 - FIX Wrong raid enchants for better filtering
 - Fix Shaman Enhancements MH/OH assignments and ranking
+- Add missing "Crystal Spire of Karabor" to the Priest Holy P3 BIS list - Thanks KarmaNation_
 
 # 1.0.3 (11-02-2021)
 - Adding consumables to the main window
