@@ -1,5 +1,7 @@
 ## Author: Mondeny @ Auberdine-EU
 ## X-Min-Interface: 20503
+## X-Curse-Project-ID: 575405
+## X-Wago-ID: Mj6jpMGR
 ## Interface: 20503
 ## Title: Best In Slot TBC Classic
 ## Notes: Keep track of your Best in Slot list!
