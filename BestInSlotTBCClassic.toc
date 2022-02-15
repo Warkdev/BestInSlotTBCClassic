@@ -1,4 +1,6 @@
 ## Author: Mondeny @ Auberdine-EU
+## X-Curse-Project-ID: 575405
+## X-Wago-ID: Mj6jpMGR
 ## X-Min-Interface: 20503
 ## Interface: 20503
 ## Title: Best In Slot TBC Classic
