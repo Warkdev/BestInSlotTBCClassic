@@ -32,4 +32,4 @@ jobs:
       - name: Create BCC Package
         uses: BigWigsMods/packager@v1.0.3
         with:
-          args: -g bcc -m .pkgmeta -n "{package-name}-{project-version}"
+          args: -g bcc -m .pkgmeta -n "{package-name}-{project-version}{classic}"
