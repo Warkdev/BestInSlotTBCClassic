@@ -26,6 +26,7 @@ data\bis_data.lua
 data\bis_ranking.lua
 data\bis_enchant.lua
 data\bis_consumables.lua
+data\bis_gems.lua
 data\recipe.lua
 data\recipe_loot.lua
 data\recipe_quests.lua

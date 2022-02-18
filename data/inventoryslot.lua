@@ -61,3 +61,10 @@ CONSO_SLOT_IDX = {
     [6] = "SCROLL",
     [7] = "MISC"
 }
+
+GEMS_SLOT_IDX = {
+    [1] = "META",
+    [2] = "RED",
+    [3] = "YELLOW",
+    [4] = "BLUE"
+}
