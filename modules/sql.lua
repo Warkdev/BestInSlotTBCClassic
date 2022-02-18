@@ -352,9 +352,5 @@ function BIS:SearchGems(class, spec, phase)
     end
   end
 
-  if empty then
-    return {};
-  end
-
   return result;
 end
