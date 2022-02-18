@@ -8,15 +8,15 @@ Supported lists are:
 
 | Class    | Phase 1 | Phase 2 | Phase 3 | Phase 4 | Phase 5 |
 | :---     | :---:   | :---:   | :---:   | :---:   | :---:   |
-| Warrior  | Yes     |  Yes    |  No     |  No     | No      |
-| Paladin  | Yes     |  Yes    |  No     |  No     | No      |
-| Hunter   | Yes     |  Yes    |  No     |  No     | No      |
-| Rogue    | Yes     |  Yes    |  No     |  No     | No      |
-| Priest   | Yes     |  Yes    |  No     |  No     | No      |
-| Shaman   | Yes     |  Yes    |  No     |  No     | No      |
-| Mage     | Yes     |  Yes    |  No     |  No     | No      |
-| Warlock  | Yes     |  Yes    |  No     |  No     | No      |
-| Druid    | Yes     |  Yes    |  No     |  No     | No      |
+| Warrior  | Yes     |  Yes    |  Yes     |  No     | No      |
+| Paladin  | Yes     |  Yes    |  Yes    |  No     | No      |
+| Hunter   | Yes     |  Yes    |  Yes     |  No     | No      |
+| Rogue    | Yes     |  Yes    |  Yes     |  No     | No      |
+| Priest   | Yes     |  Yes    |  Yes     |  No     | No      |
+| Shaman   | Yes     |  Yes    |  Yes     |  No     | No      |
+| Mage     | Yes     |  Yes    |  Yes     |  No     | No      |
+| Warlock  | Yes     |  Yes    |  Yes     |  No     | No      |
+| Druid    | Yes     |  Yes    |  Yes     |  No     | No      |
 
 You can find this add-on on curse: https://www.curseforge.com/wow/addons/best-in-slot-tbc-classic/
 
