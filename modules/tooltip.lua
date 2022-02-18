@@ -467,6 +467,12 @@ function BIS:OnTooltipSetItem(frame)
 
     end
 
+    if frame:GetOwner().comment ~= nil then
+        BIS_TOOLTIP:AddLine("Gemming advise: "..frame:GetOwner().comment, 1, 0, 1, 'true');
+    else
+        BIS_TOOLTIP:AddLine("No gemming advise", 1, 0, 1, 'true');
+    end
+
     BIS_TOOLTIP:Show();
 end
 
