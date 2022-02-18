@@ -187,6 +187,9 @@ local function ResetUI()
     local oneHandIcon, twoHandsIcon;
 
     for idx, phase in ipairs(phases.NAME) do
+        if idx > bis_currentPhaseId then
+            break;
+        end
         _G["frame_PHASE_"..phases.VALUE[idx].."_ICON"]:SetDesaturated(selectedPhase ~= phases.VALUE[idx]);
     end
 
@@ -708,6 +711,10 @@ end
 
 local function HandlePhasesIcon(self)
     local phase = tonumber(self:GetName():match("[^_]+_[^_]+_([^_]+)"));
+    if phase > bis_currentPhaseId then
+        return;
+    end
+
     if selectedPhase == phase then
         return;
     end
@@ -889,6 +896,9 @@ function BIS:ShowManager()
         end
 
         for idx, phase in ipairs(phases.NAME) do
+            if idx > bis_currentPhaseId then
+                break;
+            end
             BIS:CreateClickableIconFrame("frame_PHASE_"..phases.VALUE[idx], window, phase, 25, 25, 100 + ((idx - 1) * 25), -15, phases.ICON[idx], nil, HandlePhasesIcon, false);
         end
 
