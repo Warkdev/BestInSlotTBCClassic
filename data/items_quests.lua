@@ -222,6 +222,7 @@ ITEMS_QUEST[31107] = { Quests = {  { Id = 10639, Zone = 3520, Dungeon = false, R
 ITEMS_QUEST[31109] = { Quests = {  { Id = 10639, Zone = 3520, Dungeon = false, Raid = false, Side = "Horde", ProfReq = nil, ClassReq = nil }, { Id = 10645, Zone = 3520, Dungeon = false, Raid = false, Side = "Alliance", ProfReq = nil, ClassReq = nil } } };
 ITEMS_QUEST[31110] = { Quests = {  { Id = 10639, Zone = 3520, Dungeon = false, Raid = false, Side = "Horde", ProfReq = nil, ClassReq = nil }, { Id = 10645, Zone = 3520, Dungeon = false, Raid = false, Side = "Alliance", ProfReq = nil, ClassReq = nil } } };
 ITEMS_QUEST[31113] = { Quests = {  { Id = 9860, Zone = 36, Dungeon = false, Raid = false, Side = nil, ProfReq = nil, ClassReq = nil } } };
+ITEMS_QUEST[31116] = { Quests = {  { Id = 9644, Zone = 3457, Dungeon = false, Raid = true, Side = nil, ProfReq = nil, ClassReq = nil } } };
 ITEMS_QUEST[31380] = { Quests = {  { Id = 10781, Zone = 3520, Dungeon = false, Raid = false, Side = nil, ProfReq = nil, ClassReq = nil } } };
 ITEMS_QUEST[31383] = { Quests = {  { Id = 10781, Zone = 3520, Dungeon = false, Raid = false, Side = nil, ProfReq = nil, ClassReq = nil } } };
 ITEMS_QUEST[31460] = { Quests = {  { Id = 10704, Zone = 3845, Dungeon = true, Raid = false, Side = nil, ProfReq = nil, ClassReq = nil } } };
