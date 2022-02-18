@@ -422,7 +422,7 @@ local function Update()
         BIS:logmsg("Searching for Consumables with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp_conso = BIS:SearchConsumables(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]);
         BIS:logmsg("Searching for gems with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
-        temp_conso = BIS:SearchGems(selectedClass, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], selectedPhase);
+        temp_gems = BIS:SearchGems(selectedClass, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], selectedPhase);
     end
 
 
@@ -444,6 +444,7 @@ local function Update()
         end
         item = Item:CreateFromItemID(value.ItemId);
         _G["frame_Gems_"..idx.."_META"].index = idx;
+        _G["frame_Gems_"..idx.."_META"].is_gem = true;
         _G["frame_Gems_"..idx.."_META"].comment = value.Comment;
 
         item:ContinueOnItemLoad(function()
@@ -474,6 +475,8 @@ local function Update()
     for idx, value in pairs(temp_gems[gem_index+1]) do
         item = Item:CreateFromItemID(value.ItemId);
         _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
         _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
 
         item:ContinueOnItemLoad(function()
@@ -489,8 +492,8 @@ local function Update()
                 end
             end)
             _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
-                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..gem_index.."_"..self.index]);
-                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
 
                 BIS_TOOLTIP:SetHyperlink(itemLink);
             end);
@@ -504,6 +507,8 @@ local function Update()
     for idx, value in pairs(temp_gems[gem_index+1]) do
         item = Item:CreateFromItemID(value.ItemId);
         _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
         _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
 
         item:ContinueOnItemLoad(function()
@@ -519,8 +524,8 @@ local function Update()
                 end
             end)
             _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
-                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..gem_index.."_"..self.index]);
-                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
 
                 BIS_TOOLTIP:SetHyperlink(itemLink);
             end);
@@ -534,6 +539,8 @@ local function Update()
     for idx, value in pairs(temp_gems[gem_index+1]) do
         item = Item:CreateFromItemID(value.ItemId);
         _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
         _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
 
         item:ContinueOnItemLoad(function()
@@ -549,8 +556,8 @@ local function Update()
                 end
             end)
             _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
-                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..gem_index.."_"..self.index]);
-                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
 
                 BIS_TOOLTIP:SetHyperlink(itemLink);
             end);
