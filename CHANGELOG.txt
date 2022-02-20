@@ -1,3 +1,6 @@
+# 2.0.0 (04-02-2021)
+- Add ability to provide custom set (per character or account wide)
+
 # 1.0.5 (25-02-2021)
 - Add support for BIS gems display (both META and coloured)
 - Future phases will now be hidden
