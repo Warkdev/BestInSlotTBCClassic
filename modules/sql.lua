@@ -148,7 +148,7 @@ function BIS:SearchBis(faction, race, classSearch, phase, specSearch, invSlot, t
     -- Checking if faction must be checked either from the search or from the table.
     BIS:logmsg(value.ItemId, LVL_DEBUG)
     if BIS_ITEMS[value.ItemId] == nil then
-      BIS:logmsg("BIS_ITEMS not found for item ID "..value.ItemId, LVL_WARN)
+      -- BIS:logmsg("BIS_ITEMS not found for item ID "..value.ItemId, LVL_WARN)
       match = false;
     end
     --BIS:logmsg(BIS_ITEMS[value.ItemId], LVL_DEBUG)
@@ -306,6 +306,50 @@ function BIS:SearchConsumables(class, phase, spec)
 
   if empty then
     return {};
+  end
+
+  return result;
+end
+
+function BIS:SearchGems(class, spec, phase)
+  -- Temporary table with matching records.
+  local temp = {};
+  local result = {};
+  local empty = true;
+
+  for i = 1, table.getn(GEMS_SLOT_IDX), 1 do
+    temp[i] = {};
+    result[i] = {};
+  end
+
+  local match;
+
+  for k, value in pairs(BIS_GEMS_LINKS) do
+    match = true;
+
+    if match and (value.ClassId ~= class or value.SpecId ~= spec or value.Phase ~= phase) then
+      --BIS:logmsg("One of the mandatory argument does not match (ClassId or SpecId or Phase)", LVL_DEBUG);
+      match = false;
+    end
+
+    if match and value.Priority > 6 then
+      -- Priority is too high, won't be displayed
+      match = false;
+    end
+
+    if match then
+      empty = false;
+      table.insert(temp[value.Type], value.Priority, value);
+    end
+  end
+
+  -- Now, trimming table to remove gaps.
+  for gem_type, value in pairs(temp) do
+    for priority = 1, 100, 1 do
+      if temp[gem_type][priority] ~= nil then
+        table.insert(result[gem_type], temp[gem_type][priority]);
+      end
+    end
   end
 
   return result;

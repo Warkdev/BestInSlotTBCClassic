@@ -467,6 +467,14 @@ function BIS:OnTooltipSetItem(frame)
 
     end
 
+    if frame:GetOwner().is_gem ~= nil and frame:GetOwner().is_gem then
+        if frame:GetOwner().comment ~= nil then
+            BIS_TOOLTIP:AddLine("BIS TBCC - Gemming advise: "..frame:GetOwner().comment, 1, 0, 1, 'true');
+        else
+            BIS_TOOLTIP:AddLine("BIS TBCC - No gemming advise", 1, 0, 1, 'true');
+        end
+    end
+
     BIS_TOOLTIP:Show();
 end
 

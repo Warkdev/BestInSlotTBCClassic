@@ -187,6 +187,9 @@ local function ResetUI()
     local oneHandIcon, twoHandsIcon;
 
     for idx, phase in ipairs(phases.NAME) do
+        if idx > bis_currentPhaseId then
+            break;
+        end
         _G["frame_PHASE_"..phases.VALUE[idx].."_ICON"]:SetDesaturated(selectedPhase ~= phases.VALUE[idx]);
     end
 
@@ -205,12 +208,21 @@ local function ResetUI()
                 _G["EnchantFrame_"..value.."_"..i]:SetScript("OnLeave", nil);
             end
         end
+        for i=1, 2, 1 do
+            if characterFrames.META[key] then
+                _G["frame_"..value.."_"..i.."_META_ICON"]:SetTexture("interface\\itemsocketingframe\\ui-emptysocket-meta.blp");
+                _G["frame_"..value.."_"..i.."_META"]:SetScript("OnEnter", nil);
+                _G["frame_"..value.."_"..i.."_META"]:SetScript("OnLeave", nil);
+            end
+        end
         for i=1, 3, 1 do
             if characterFrames.GEMS[key] then
                 -- Special handling for gems slot
                 _G["frame_"..value.."_"..i.."_ICON"]:SetTexture(gemsIcons[i]);
                 for j=1, 6, 1 do
                     _G["frame_"..value.."_"..i.."_"..j.."_ICON"]:SetTexture(gemsIcons[i]);
+                    _G["frame_"..value.."_"..i.."_"..j]:SetScript("OnEnter", nil);
+                    _G["frame_"..value.."_"..i.."_"..j]:SetScript("OnLeave", nil);
                 end
             elseif characterFrames.CONSUMABLES[key] then
                 -- Special handling for consumables slot
@@ -400,6 +412,8 @@ local function Update()
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, selectedSpec, nil, raid, twoHands);
         BIS:logmsg("Searching for Consumables with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
         temp_conso = BIS:SearchConsumables(selectedClass, selectedPhase, selectedSpec);
+        BIS:logmsg("Searching for Gems with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..selectedSpec..").", LVL_DEBUG);
+        temp_gems = BIS:SearchGems(selectedClass, selectedSpec, selectedPhase);
     else
         BIS:logmsg("Searching for BIS items with the following settings Race Idx ("..selectedRace.."), Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp = BIS:SearchBis(faction, selectedRace, selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, twoHands, raid, worldBoss, pvp, nil);
@@ -407,11 +421,13 @@ local function Update()
         temp_enchant = BIS:SearchBisEnchant(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], nil, raid, twoHands);
         BIS:logmsg("Searching for Consumables with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
         temp_conso = BIS:SearchConsumables(selectedClass, selectedPhase, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]);
+        BIS:logmsg("Searching for gems with the following settings Class Idx ("..selectedClass.."), Phase Idx ("..selectedPhase.."), Spec Idx ("..BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist]..").", LVL_DEBUG);
+        temp_gems = BIS:SearchGems(selectedClass, BIS_dataSpecs[selectedClass].MAGIC_RESISTANCE[selectedSpec][selectedMagicResist], selectedPhase);
     end
 
 
 
-    if table.getn(temp) == 0 and table.getn(temp_enchant) == 0 and table.getn(temp_conso) then
+    if table.getn(temp) == 0 and table.getn(temp_enchant) == 0 and table.getn(temp_conso) == 0 and table.getn(temp_gems) == 0 then
         -- Empty table.
         return;
     end
@@ -420,6 +436,138 @@ local function Update()
     local temp_slot;
     local item;
 
+    -- Handling GEMS
+    -- META
+    for idx, value in pairs(temp_gems[1]) do
+        if idx > 2 then
+            break;
+        end
+        item = Item:CreateFromItemID(value.ItemId);
+        _G["frame_Gems_"..idx.."_META"].index = idx;
+        _G["frame_Gems_"..idx.."_META"].is_gem = true;
+        _G["frame_Gems_"..idx.."_META"].comment = value.Comment;
+
+        item:ContinueOnItemLoad(function()
+            -- Item has been answered from the server.
+            local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+            itemEquipLoc, itemIcon, itemSellPrice, itemClassID, itemSubClassID, bindType, expacID, itemSetID,
+            isCraftingReagent = GetItemInfo("item:"..value.ItemId..":0:0:0:0:0:0");
+
+            _G["frame_Gems_"..idx.."_META_ICON"]:SetTexture(itemIcon);
+            _G["frame_Gems_"..idx.."_META"]:SetScript("OnMouseDown", function(self)
+                if itemName ~= nil then
+                    SetItemRef(itemLink, itemLink, "LeftButton");
+                end
+            end)
+            _G["frame_Gems_"..idx.."_META"]:SetScript("OnEnter", function(self)
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.index.."_META"]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.index.."_META"], "TOPRIGHT", 220, -13);
+
+                BIS_TOOLTIP:SetHyperlink(itemLink);
+            end);
+            _G["frame_Gems_"..idx.."_META"]:SetScript("OnLeave", function(self)
+                BIS_TOOLTIP:Hide();
+            end);
+        end);
+    end
+    -- RED
+    local gem_index = 1;
+    for idx, value in pairs(temp_gems[gem_index+1]) do
+        item = Item:CreateFromItemID(value.ItemId);
+        _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
+        _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
+
+        item:ContinueOnItemLoad(function()
+            -- Item has been answered from the server.
+            local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+            itemEquipLoc, itemIcon, itemSellPrice, itemClassID, itemSubClassID, bindType, expacID, itemSetID,
+            isCraftingReagent = GetItemInfo("item:"..value.ItemId..":0:0:0:0:0:0");
+
+            _G["frame_Gems_"..gem_index.."_"..idx.."_ICON"]:SetTexture(itemIcon);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnMouseDown", function(self)
+                if itemName ~= nil then
+                    SetItemRef(itemLink, itemLink, "LeftButton");
+                end
+            end)
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+
+                BIS_TOOLTIP:SetHyperlink(itemLink);
+            end);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnLeave", function(self)
+                BIS_TOOLTIP:Hide();
+            end);
+        end);
+    end
+    -- YELLOW
+    gem_index = 2;
+    for idx, value in pairs(temp_gems[gem_index+1]) do
+        item = Item:CreateFromItemID(value.ItemId);
+        _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
+        _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
+
+        item:ContinueOnItemLoad(function()
+            -- Item has been answered from the server.
+            local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+            itemEquipLoc, itemIcon, itemSellPrice, itemClassID, itemSubClassID, bindType, expacID, itemSetID,
+            isCraftingReagent = GetItemInfo("item:"..value.ItemId..":0:0:0:0:0:0");
+
+            _G["frame_Gems_"..gem_index.."_"..idx.."_ICON"]:SetTexture(itemIcon);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnMouseDown", function(self)
+                if itemName ~= nil then
+                    SetItemRef(itemLink, itemLink, "LeftButton");
+                end
+            end)
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+
+                BIS_TOOLTIP:SetHyperlink(itemLink);
+            end);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnLeave", function(self)
+                BIS_TOOLTIP:Hide();
+            end);
+        end);
+    end
+    -- BLUE
+    gem_index = 3;
+    for idx, value in pairs(temp_gems[gem_index+1]) do
+        item = Item:CreateFromItemID(value.ItemId);
+        _G["frame_Gems_"..gem_index.."_"..idx].index = idx;
+        _G["frame_Gems_"..gem_index.."_"..idx].gem_index = gem_index;
+        _G["frame_Gems_"..gem_index.."_"..idx].is_gem = true;
+        _G["frame_Gems_"..gem_index.."_"..idx].comment = value.Comment;
+
+        item:ContinueOnItemLoad(function()
+            -- Item has been answered from the server.
+            local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount,
+            itemEquipLoc, itemIcon, itemSellPrice, itemClassID, itemSubClassID, bindType, expacID, itemSetID,
+            isCraftingReagent = GetItemInfo("item:"..value.ItemId..":0:0:0:0:0:0");
+
+            _G["frame_Gems_"..gem_index.."_"..idx.."_ICON"]:SetTexture(itemIcon);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnMouseDown", function(self)
+                if itemName ~= nil then
+                    SetItemRef(itemLink, itemLink, "LeftButton");
+                end
+            end)
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnEnter", function(self)
+                BIS_TOOLTIP:SetOwner(_G["frame_Gems_"..self.gem_index.."_"..self.index]);
+                BIS_TOOLTIP:SetPoint("TOPLEFT", _G["frame_Gems_"..self.gem_index.."_"..self.index], "TOPRIGHT", 220, -13);
+
+                BIS_TOOLTIP:SetHyperlink(itemLink);
+            end);
+            _G["frame_Gems_"..gem_index.."_"..idx]:SetScript("OnLeave", function(self)
+                BIS_TOOLTIP:Hide();
+            end);
+        end);
+    end
+
+    -- Handling Consumables
     for i = 1, table.getn(CONSO_SLOT_IDX), 1 do
         if temp_conso[i] ~= nil then
             for idx, value in pairs(temp_conso[i]) do
@@ -570,6 +718,10 @@ end
 
 local function HandlePhasesIcon(self)
     local phase = tonumber(self:GetName():match("[^_]+_[^_]+_([^_]+)"));
+    if phase > bis_currentPhaseId then
+        return;
+    end
+
     if selectedPhase == phase then
         return;
     end
@@ -751,6 +903,9 @@ function BIS:ShowManager()
         end
 
         for idx, phase in ipairs(phases.NAME) do
+            if idx > bis_currentPhaseId then
+                break;
+            end
             BIS:CreateClickableIconFrame("frame_PHASE_"..phases.VALUE[idx], window, phase, 25, 25, 100 + ((idx - 1) * 25), -15, phases.ICON[idx], nil, HandlePhasesIcon, false);
         end
 
